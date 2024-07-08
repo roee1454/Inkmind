@@ -24,7 +24,7 @@ export default function Navbar() {
     <div className="w-full z-50 font-karantina">
       <div className="flex flex-row justify-between items-center px-6 md:px-20 py-6">
         <Link href="/" className="text-3xl md:text-6xl font-bold cursor-pointer">
-          לוגו
+          בס"ד
         </Link>
         {/* Mobile Menu */}
         <div className="md:hidden flex flex-row justify-center items-center">
