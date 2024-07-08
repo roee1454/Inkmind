@@ -1,8 +1,7 @@
 "use client";
-import useIsMobile from "@/hooks/useIsMobile";
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, User, Home } from "lucide-react";
+import { Menu, User, Home, GalleryHorizontal, Contact } from "lucide-react";
 import {
   Drawer,
   DrawerContent,
@@ -12,22 +11,24 @@ import {
 } from "../drawer";
 import { Button } from "../button";
 import { useState } from "react";
+import { ModeToggle } from "./theme-toggle";
 
 export default function Navbar() {
-  const isMobile = useIsMobile();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const handleCloseOnRedirect = () => {
     setIsDrawerOpen(false);
   };
 
-  if (isMobile) {
-    return (
-      <div className="w-full">
-        <div className="flex flex-row justify-between items-center px-6 md:px-20 py-6">
-          <Link href="/" className="text-3xl font-bold cursor-pointer">
-            לוגו
-          </Link>
+  return (
+    <div className="w-full z-50 font-karantina">
+      <div className="flex flex-row justify-between items-center px-6 md:px-20 py-6">
+        <Link href="/" className="text-3xl md:text-6xl font-bold cursor-pointer">
+          לוגו
+        </Link>
+        {/* Mobile Menu */}
+        <div className="md:hidden flex flex-row justify-center items-center">
+          <ModeToggle />
           <Drawer
             disablePreventScroll={true}
             fixed
@@ -43,7 +44,7 @@ export default function Navbar() {
                 <Menu />
               </Button>
             </DrawerTrigger>
-            <DrawerContent>
+            <DrawerContent className="font-bold font-karantina">
               <DrawerHeader>
                 <DrawerTitle>תפריט</DrawerTitle>
               </DrawerHeader>
@@ -62,13 +63,13 @@ export default function Navbar() {
                 />
                 <NavDrawerItem
                   title="אלבום"
-                  icon={<User />}
+                  icon={<GalleryHorizontal />}
                   href="/album"
                   handleCloseOnRedirect={handleCloseOnRedirect}
                 />
                 <NavDrawerItem
                   title="יצירת קשר"
-                  icon={<User />}
+                  icon={<Contact />}
                   href="/contact"
                   handleCloseOnRedirect={handleCloseOnRedirect}
                 />
@@ -76,20 +77,13 @@ export default function Navbar() {
             </DrawerContent>
           </Drawer>
         </div>
-      </div>
-    );
-  }
 
-  return (
-    <div className="w-full">
-      <div className="flex flex-row justify-between items-center px-4 md:px-20 py-6">
-        <Link href="/" className="font-bold text-5xl cursor-pointer">
-          לוגו
-        </Link>
-        <div className="flex flex-row justify-center items-center space-x-6 px-6 py-4">
+        {/* Desktop Menu */}
+        <div className="hidden md:flex flex-row justify-center items-center space-x-6 px-6 py-4">
           <NavItem title="אודות" href="/about" />
           <NavItem title="אלבום" href="/album" />
           <NavItem title="יצירת קשר" href="/contact" />
+          <ModeToggle />
         </div>
       </div>
     </div>
@@ -110,7 +104,7 @@ function NavItem({ title, href }: NavItemProps) {
   return (
     <Link
       href={href || "/"}
-      className="text-xl font-bold border-none px-6 py-2 rounded-lg transition hover:bg-gray-200"
+      className="text-3xl font-bold border-none px-6 py-2 rounded-lg transition hover:text-white hover:bg-primary"
     >
       {title || "כותרת"}
     </Link>
@@ -125,7 +119,7 @@ function NavIcon({ href, icon }: NavIconProps) {
   return (
     <Link
       href={href}
-      className="p-2.5 rounded-full bg-transparent transition hover:bg-gray-200"
+      className="p-2.5 rounded-full bg-transparent transition dark:hover:bg-primary"
     >
       <Image src={icon} alt="logo" />
     </Link>
@@ -142,7 +136,7 @@ function NavDrawerItem({
     <Link
       onClick={handleCloseOnRedirect}
       href={href || "/"}
-      className="w-full flex flex-row justify-between items-center px-12 py-2 rounded-sm bg-primary-foreground shadow-sm border-[1px] border-primary"
+      className="w-full flex flex-row justify-between items-center px-6 py-2 rounded-full shadow-sm border-4 border-primary"
     >
       <div className="text-lg font-semibold">{title}</div>
       {icon}

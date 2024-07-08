@@ -1,24 +1,37 @@
-'use client'
+"use client";
 import { FacebookIcon, InstagramIcon } from "@/assets";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
 import Link from "next/link";
-import Image from 'next/image'
+import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="py-8 px-4 sm:px-6 lg:px-8">
+    <footer className="w-full py-8 px-6 md:px-20">
       <div className="container mx-auto flex flex-col items-center justify-between gap-4 sm:flex-row">
         <div className="flex items-center gap-4">
-          <Link target="_blank" href="https://www.facebook.com/roee_h1/" aria-label="Facebook"  prefetch={false}>
-            <Image src={FacebookIcon} className="transition hover:text-primary" alt="Facebook" />
+          <Link
+            target="_blank"
+            href="https://www.facebook.com/roee_h1/"
+            aria-label="Facebook"
+            prefetch={false}
+          >
+            <FaFacebook className="w-6 h-6 cursor-pointer transition hover:text-primary" />
           </Link>
-          <Link target="_blank" href="https://instagram.com/roee_h1" aria-label="Instagram"  prefetch={false}>
-            <Image src={InstagramIcon} className="transition hover:text-primary" alt="Instagram" />
+          <Link
+            target="_blank"
+            href="https://instagram.com/roee_h1"
+            aria-label="Instagram"
+            prefetch={false}
+          >
+            <FaInstagram className="w-6 h-6 cursor-pointer transition hover:text-primary" />
           </Link>
+          <span>&copy; Ink Mind</span>
         </div>
+        <div className="text-muted-foreground text-sm">שוהם מרקט דקל 30, Shoham</div>
         <div className="flex items-center gap-4 text-sm text-muted-foreground">
           <Link
             href="/accessability"
-            className="hover:text-primary transition-colors"
+            className="underline md:no-underline hover:text-primary transition-colors"
             prefetch={false}
           >
             נגישות

@@ -1,24 +1,19 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-const useIsMobile = (breakpoint = 768) => {
-    const [isMobile, setIsMobile] = useState(false);
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
 
-    useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth < breakpoint);
-        };
+  useEffect(() => {
+    const userAgent = typeof window.navigator === 'undefined' ? '' : navigator.userAgent;
+    const mobile = Boolean(
+      userAgent.match(
+        /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
+      )
+    );
+    setIsMobile(mobile);
+  }, []);
 
-        // Initial check
-        handleResize();
-
-        // Listen to window resize events
-        window.addEventListener('resize', handleResize);
-
-        // Clean up event listener on unmount
-        return () => window.removeEventListener('resize', handleResize);
-    }, [breakpoint]);
-
-    return isMobile;
-};
+  return isMobile;
+}
 
 export default useIsMobile;

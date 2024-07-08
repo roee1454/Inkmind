@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/ui/custom/navbar";
 import WhatsappButton from "@/components/ui/custom/whatsapp-button";
 import Footer from "@/components/ui/custom/footer";
+import { ThemeProvider } from "@/components/ui/theme-provider";
 
 export const metadata: Metadata = {
   title: "Inkmind Tatoos",
@@ -16,11 +17,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <Navbar />
-        <WhatsappButton href="https://wa.me/+972528114746" />
-        {children}
-        <Footer />
+      <body dir="rtl">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem          
+        >
+          <Navbar />
+          <WhatsappButton href="https://wa.me/+972528114746" />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
