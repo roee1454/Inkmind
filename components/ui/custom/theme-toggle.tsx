@@ -24,14 +24,14 @@ export function ModeToggle() {
           <span className="sr-only">החלף ערכת נושא</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="font-karantina" align="end">
-        <DropdownMenuItem className="text-xl" onClick={() => setTheme("light")}>
+      <DropdownMenuContent className="font-sans font-bold " align="center">
+        <DropdownMenuItem className="text-xl text-center" onClick={() => setTheme("light")}>
           מצב יום
         </DropdownMenuItem>
-        <DropdownMenuItem className="text-xl" onClick={() => setTheme("dark")}>
+        <DropdownMenuItem className="text-xl text-center" onClick={() => setTheme("dark")}>
           מצב לילה
         </DropdownMenuItem>
-        <DropdownMenuItem className="text-xl" onClick={() => setTheme("system")}>
+        <DropdownMenuItem className="text-xl text-center" onClick={() => setTheme("system")}>
           מערכת
         </DropdownMenuItem>
       </DropdownMenuContent>

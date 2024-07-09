@@ -23,7 +23,7 @@ export default function Navbar() {
   return (
     <div className="w-full z-50 font-karantina">
       <div className="flex flex-row justify-between items-center px-6 md:px-20 py-6">
-        <Link href="/" className="text-3xl md:text-6xl font-bold cursor-pointer">
+        <Link aria-label="דף בית" href="/" className="text-3xl md:text-6xl font-bold cursor-pointer">
           בס&quot;ד
         </Link>
         {/* Mobile Menu */}
@@ -136,7 +136,7 @@ function NavDrawerItem({
     <Link
       onClick={handleCloseOnRedirect}
       href={href || "/"}
-      className="w-full flex flex-row justify-between items-center px-6 py-2 rounded-full shadow-sm border-4 border-primary"
+      className="w-full flex flex-row justify-between items-center px-6 py-2 rounded-lg shadow-lg border-4 border-primary"
     >
       <div className="text-lg font-semibold">{title}</div>
       {icon}
