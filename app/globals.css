@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Karantina:wght@300;400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Karantina:wght@300;400;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -56,9 +56,24 @@
     @apply border-border;
   }
   body {
-    @apply  text-foreground absolute inset-0 h-full w-full bg-background bg-[linear-gradient(to_right,#80808012_2px,transparent_2px),linear-gradient(to_bottom,#80808012_2px,transparent_2px)] bg-[size:40px_40px];
+    @apply text-foreground absolute inset-0 h-full w-full bg-background bg-[linear-gradient(to_right,#80808012_2px,transparent_2px),linear-gradient(to_bottom,#80808012_2px,transparent_2px)] bg-[size:40px_40px];
     font-family: sans-serif;
     scrollbar-gutter: auto;
     scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  div#NagishLiTrigger {
+    max-width: 50px;
+    max-height: 50px;
+    display: inline-block;
+    position: fixed;
+    bottom: 2.5rem !important;
+    left: 2.5rem !important;
+    right: calc(10px +(100vw - 100%));
+}
+
+  div#NagishLiWidget {
+    @apply dark:text-black;
   }
 }

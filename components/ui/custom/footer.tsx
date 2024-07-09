@@ -36,6 +36,13 @@ export default function Footer() {
           >
             נגישות
           </Link>
+          <Link
+            href="/privacy"
+            className="underline md:no-underline hover:text-primary transition-colors"
+            prefetch={false}
+          >
+            פרטיות
+          </Link>
           <span>&copy; פותח על ידי רואי חיילי</span>
         </div>
       </div>

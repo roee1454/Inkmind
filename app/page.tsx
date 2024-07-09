@@ -23,20 +23,20 @@ export default function Home() {
               className="w-full flex flex-col items-center md:items-start gap-5 md:gap-10  text-3xl md:text-6xl text-center md:text-start font-bold"
             >
               <span className="font-karantina flex flex-col gap-5">
-                <span className="">
-                  We Got You
+                <h1 className="flex flex-row justify-center md:justify-start items-center space-x-2">
+                  <p className="transition-all">We Got You</p>
                   <FlipWords
                     words={["Enourmous?", "Minimal?", "Outragous?"]}
                     className="text-primary dark:text-primary"
                   />{" "}
-                </span>
-                <span>
+                </h1>
+                <h2>
                   צוות המקעקעים שלנו יוכל לעבוד עם כל עיצוב שתבחרו{" "}
                   <span className="decoration-primary decoration-wavy underline underline-offset-8">
                     בהבטחה
                   </span>
                   !
-                </span>
+                </h2>
               </span>
               <Link
                 to="section2"
@@ -79,7 +79,7 @@ export default function Home() {
                       draggable={false}
                       className="w-24 md:w-52 h-24 md:h-52 rotate-12 pointer-events-none"
                       src={StampIcon}
-                      alt="stamp"
+                      alt="חותמת - אישור"
                     />
                   </motion.div>
                 </AspectRatio>
@@ -88,37 +88,36 @@ export default function Home() {
           </div>
         </AnimatePresence>
       </main>
-      <Element
-        name="section2"
-        className="w-full min-h-screen flex flex-col justify-center items-center gap-10 md:gap-20"
-      >
-        <div className="text-3xl md:text-6xl text-center font-karantina">
-          הלקוחות אומרים:
-        </div>
-        <CardStack
-          items={[
-            {
-              name: "רואי",
-              id: 0,
-              designation: "רואי חיילי המלך",
-              content:
-                "התהליך עבר ממש ממש בקלות והיחס של דור כלפייך הוא באמת מדהים, ללא ספק אחזור שוב!",
-            },
-            {
-              name: "רואי",
-              id: 1,
-              designation: "רואי חיילי המלך",
-              content:
-                "התהליך עבר ממש ממש בקלות והיחס של דור כלפייך הוא באמת מדהים, ללא ספק אחזור שוב!",
-            },
-            {
-              name: "רואי",
-              id: 2,
-              designation: "רואי חיילי",
-              content: "ללא ספק אחזור שוב!",
-            },
-          ]}
-        />
+      <Element name="section2">
+        <section className="w-full min-h-screen flex flex-col justify-center items-center gap-10 md:gap-20">
+          <div className="text-3xl md:text-6xl text-center font-karantina">
+            הלקוחות אומרים:
+          </div>
+          <CardStack
+            items={[
+              {
+                name: "רואי",
+                id: 0,
+                designation: "רואי חיילי המלך",
+                content:
+                  "התהליך עבר ממש ממש בקלות והיחס של דור כלפייך הוא באמת מדהים, ללא ספק אחזור שוב!",
+              },
+              {
+                name: "רואי",
+                id: 1,
+                designation: "רואי חיילי המלך",
+                content:
+                  "התהליך עבר ממש ממש בקלות והיחס של דור כלפייך הוא באמת מדהים, ללא ספק אחזור שוב!",
+              },
+              {
+                name: "רואי",
+                id: 2,
+                designation: "רואי חיילי",
+                content: "ללא ספק אחזור שוב!",
+              },
+            ]}
+          />
+        </section>
       </Element>
     </div>
   );
