@@ -5,7 +5,6 @@ import WhatsappButton from "@/components/ui/custom/whatsapp-button";
 import Footer from "@/components/ui/custom/footer";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import QueryProvider from "@/components/ui/custom/query-provider";
-import ScrollProgressBar from "@/components/ui/custom/scroll-progress-bar";
 
 export default function RootLayout({
   children,
@@ -19,7 +18,6 @@ export default function RootLayout({
         <div dir="rtl">
           <QueryProvider>
             <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-              <ScrollProgressBar />
               <Navbar />
               <WhatsappButton href="https://wa.me/+972528114746" />
               {children}

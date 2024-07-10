@@ -19,11 +19,13 @@ import { FlipWords } from "@/components/ui/custom/filp-words";
 import ServiceCard from "@/components/ui/custom/service-card";
 import Photo from "@/components/ui/custom/Photo";
 import ImageSwiper from "@/components/ui/custom/image-swiper";
+import ScrollProgressBar from "@/components/ui/custom/scroll-progress-bar";
 
 export default function Home() {
   return (
     <div className="w-full min-h-full">
-      <main className="h-[90vh] w-full px-6 md:px-20 py-12">
+      <ScrollProgressBar />
+      <main className="h-[90vh] w-full px-6 md:px-20 py-6">
         <AnimatePresence mode="wait">
           <div className="w-full h-full flex flex-col lg:flex-row justify-center lg:justify-between items-center gap-20 md:gap-15 lg:gap-10">
             <motion.div
@@ -112,7 +114,7 @@ export default function Home() {
             transition={{ ease: "easeInOut", duration: 0.3 }}
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            className="w-full grid grid-cols-1 md:grid-cols-2 md:last:col-span-2 md:last:w-full lg:grid-cols-3 justify-items-center content-center gap-16"
+            className="w-full grid grid-cols-1 lg:grid-cols-3 justify-items-center content-center gap-16"
           >
             <ServiceCard
               title="אפיון מדויק"
@@ -159,7 +161,7 @@ export default function Home() {
             transition={{ ease: "easeInOut", duration: 0.6 }}
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center content-center gap-5 sm:gap-7 md:gap-10 lg:gap-15"
+            className="w-full grid grid-cols-1 lg:grid-cols-4 justify-items-center content-center gap-5 sm:gap-7 md:gap-10 lg:gap-15"
           >
             <Photo
               image={Photo1}
@@ -199,7 +201,7 @@ export default function Home() {
             transition={{ ease: "easeInOut", duration: 0.3 }}
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            className="w-full grid grid-cols-1 md:grid-cols-2 md:last:col-span-2 md:last:w-full lg:grid-cols-3 justify-items-center content-center gap-16"
+            className="w-full grid grid-cols-1 lg:grid-cols-3 justify-items-center content-center gap-16"
           >
             <ServiceCard
               title="סמסו לנו בוואצאפ"

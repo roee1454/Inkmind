@@ -31,7 +31,7 @@ export default function Navbar() {
           בס&quot;ד
         </Link>
         {/* Mobile Menu */}
-        <div className="md:hidden flex flex-row justify-center items-center">
+        <div className="lg:hidden flex flex-row justify-center items-center">
           <ModeToggle />
           <Drawer
             disablePreventScroll={true}
@@ -83,7 +83,7 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex flex-row justify-center items-center space-x-6 px-6 py-4">
+        <div className="hidden lg:flex flex-row justify-center items-center space-x-6 px-6 py-4">
           <NavItem title="אודות" href="/about" />
           <NavItem title="אלבום קעקועים" href="/tattoos-album" />
           <NavItem title="אלבום פירסינג" href="/piercing-album" />

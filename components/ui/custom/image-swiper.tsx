@@ -37,7 +37,7 @@ export default function ImageSwiper({
       transition={{ ease: "easeInOut", duration: 0.6 }}
       initial={{ scale: 1.2, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
-      className="w-64 md:w-[100%] h-[100%] mx-auto"
+      className="w-72 lg:w-[100%] h-[100%] mx-auto"
     >
       {images.map((_, index) => {
         if (index === currentImage) {
@@ -50,29 +50,29 @@ export default function ImageSwiper({
               key={index}
             >
               <AspectRatio
-                ratio={20 / 16}
-                className="bg-muted w-full h-full shadow-md rounded-lg"
+                ratio={26/22}
+                className="bg-muted w-full h-full shadow-xl rounded-lg border-foreground border-4"
               >
                 <Image
                   draggable={false}
                   src={images[currentImage]}
                   priority
                   alt="Hero Image - Tiger Tattoo"
-                  className="w-full h-full object-cover rounded-lg"
+                  className="w-full h-full object-cover"
                 />
               </AspectRatio>
+              <div className="w-full absolute top-[40px] right-0 md:right-[-20px] translate-y-[-50%]">
+                <Image
+                  draggable={false}
+                  className="w-24 lg:w-52 h-24 lg:h-52 rotate-12"
+                  src={StampIcon}
+                  alt="חותמת - אישור"
+                />
+              </div>
             </motion.div>
           );
         }
       })}
-      <div className="w-full absolute top-[40px] right-0 md:right-[-20px] -translate-y-[50%]">
-        <Image
-          draggable={false}
-          className="w-24 md:w-52 h-24 md:h-52 rotate-12"
-          src={StampIcon}
-          alt="חותמת - אישור"
-        />
-      </div>
     </motion.div>
   );
 }
