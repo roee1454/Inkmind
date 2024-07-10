@@ -1,45 +1,53 @@
 "use client";
-import Image from "next/image";
 import { SlTarget } from "react-icons/sl";
 import { LuHeartHandshake } from "react-icons/lu";
 import { GiPiercingSword } from "react-icons/gi";
+import { FaWhatsapp, FaPhone, FaWaze } from "react-icons/fa";
 import { ArrowDown } from "lucide-react";
-import StampIcon from "../public/Stamp.png";
-import HeroImage from "../public/Hero Placeholder.jpg";
+import SwiperImage1 from "../public/swiper-image1.jpg";
+import SwiperImage2 from "../public/swiper-image2.jpg";
+import SwiperImage3 from "../public/swiper-image3.jpg";
+import SwiperImage4 from "../public/swiper-image4.jpg";
 import Photo1 from "../public/photo1.jpg";
 import Photo2 from "../public/photo2.jpg";
 import Photo3 from "../public/photo3.jpg";
 import Photo4 from "../public/photo4.jpg";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { buttonVariants } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { Element, Link } from "react-scroll";
 import NextLink from "next/link";
 import { FlipWords } from "@/components/ui/custom/filp-words";
 import ServiceCard from "@/components/ui/custom/service-card";
 import Photo from "@/components/ui/custom/Photo";
+import ImageSwiper from "@/components/ui/custom/image-swiper";
 
 export default function Home() {
   return (
     <div className="w-full min-h-full">
-      <main className="h-[85vh] w-full px-6 md:px-20 py-6">
+      <main className="h-[90vh] w-full px-6 md:px-20 py-12">
         <AnimatePresence mode="wait">
-          <div className="w-full h-full flex flex-col md:flex-row justify-center md:justify-between items-center gap-20 md:gap-5">
+          <div className="w-full h-full flex flex-col lg:flex-row justify-center lg:justify-between items-center gap-20 md:gap-15 lg:gap-10">
             <motion.div
               transition={{ ease: "easeInOut", duration: 0.3 }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="w-full flex flex-col items-center md:items-start gap-5 md:gap-10  text-3xl md:text-6xl text-center md:text-start font-bold"
+              className="w-full flex flex-col items-center lg:items-start gap-5 md:gap-10 space-y-4 md:space-y-1 text-4xl md:text-5xl lg:text-6xl text-center lg:text-start font-bold"
             >
               <span className="font-karantina flex flex-col gap-5">
-                <h1 className="flex flex-row justify-center md:justify-start items-center space-x-2">
+                <h1
+                  title="מילים דינמיות - אנימציה"
+                  className="flex flex-row justify-center lg:justify-start items-center space-x-2"
+                >
                   <p className="transition-all">We Got You</p>
                   <FlipWords
                     words={["Enourmous?", "Minimal?", "Outragous?"]}
                     className="text-primary dark:text-primary"
                   />{" "}
                 </h1>
-                <h2 className="font-semibold text-foreground">
+                <h2
+                  title="כותרת משנה"
+                  className="font-bold text-foreground text-[2.75rem]"
+                >
                   צוות המקעקעים שלנו יוכל לעבוד עם כל עיצוב שתבחרו{" "}
                   <span className="decoration-primary decoration-wavy underline underline-offset-8">
                     בהבטחה
@@ -52,61 +60,54 @@ export default function Home() {
                 spy
                 smooth
                 duration={500}
+                tabIndex={0}
+                id="focusable"
+                onKeyDown={(e) => {
+                  if (e.key === "tab") {
+                    const div = document.getElementById("focusable");
+                    div?.focus();
+                  }
+                  if (e.key === "Enter") {
+                    const div = document.getElementById("focusable");
+                    div?.click();
+                  }
+                }}
                 className={buttonVariants({
-                  size: "sm",
-                  className: "text-xl cursor-pointer",
+                  size: "lg",
+                  className:
+                    "font-bold font-karantina text-[3rem] p-8 lg:p-12 cursor-pointer shadow-md",
                 })}
               >
-                ראה עוד <ArrowDown className="mr-2 w-5 h-5 animate-bounce" />
+                ראה עוד{" "}
+                <ArrowDown className="mr-2 w-5 h-5 md:w-8 md:h-8 lg:w-12 lg:h-12 animate-bounce" />
               </Link>
             </motion.div>
             <div className="relative w-full">
-              <motion.div
-                transition={{ ease: "easeInOut", duration: 0.6 }}
-                initial={{ scale: 1.2, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                className="w-64 md:w-[100%] h-[100%] mx-auto"
-              >
-                <AspectRatio
-                  ratio={24 / 16}
-                  className="bg-muted w-full h-full shadow-md rounded-lg"
-                >
-                  <Image
-                    draggable={false}
-                    src={HeroImage}
-                    priority
-                    alt="Hero Image - Tiger Tattoo"
-                    className="w-full h-full object-cover rounded-lg"
-                  />
-                  <motion.div
-                    transition={{ ease: "easeInOut", duration: 1.2 }}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="w-full absolute top-[40px] right-0 md:right-[-20px] -translate-y-[50%]"
-                  >
-                    <Image
-                      draggable={false}
-                      className="w-24 md:w-52 h-24 md:h-52 rotate-12"
-                      src={StampIcon}
-                      alt="חותמת - אישור"
-                    />
-                  </motion.div>
-                </AspectRatio>
-              </motion.div>
+              <ImageSwiper
+                images={[
+                  SwiperImage1,
+                  SwiperImage2,
+                  SwiperImage3,
+                  SwiperImage4,
+                ]}
+                switchTimeInSeconds={3}
+              />
             </div>
           </div>
         </AnimatePresence>
       </main>
       <Element name="section2">
-        <section className="w-full px-6 md:px-20 py-6 min-h-screen flex flex-col justify-center items-center gap-10 md:gap-20">
+        <section className="w-full px-6 md:px-20 py-12 min-h-screen flex flex-col justify-center items-center gap-10 md:gap-20">
           <motion.div
             transition={{ ease: "easeInOut", duration: 0.1 }}
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             className="flex flex-col justify-center items-center space-y-2 text-center font-karantina"
           >
-            <span className="text-primary text-2xl md:text-4xl">שירותים</span>
-            <h1 className="text-3xl md:text-6xl font-bold decoration-wavy decoration-primary underline underline-offset-8">
+            <span className="text-primary text-4xl font-bold md:text-4xl">
+              שירותים
+            </span>
+            <h1 className="text-4xl md:text-6xl font-bold decoration-wavy decoration-primary underline underline-offset-8">
               הסטודיו שלנו מציע
             </h1>
           </motion.div>
@@ -135,22 +136,24 @@ export default function Home() {
         </section>
       </Element>
       <Element name="section3">
-        <section className="w-full px-6 md:px-20 py-6 min-h-screen flex flex-col justify-center items-center gap-10 md:gap-20">
+        <section className="w-full px-6 md:px-20 py-12 min-h-screen flex flex-col justify-center items-center gap-10 md:gap-20">
           <motion.div
             transition={{ ease: "easeInOut", duration: 0.3 }}
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             className="flex flex-col justify-center items-center space-y-2 text-center font-karantina"
           >
-            <span className="text-primary text-2xl md:text-4xl">פרויקטים</span>
-            <h1 className="pb-8 text-3xl md:text-6xl font-bold decoration-wavy decoration-primary underline underline-offset-8">
+            <span className="text-primary text-4xl font-bold md:text-4xl">
+              פרויקטים
+            </span>
+            <h1 className="pb-8 text-4xl md:text-6xl font-bold decoration-solid decoration-primary underline underline-offset-8">
               קצת לקוחות מרוצים
             </h1>
             <NextLink
               className={buttonVariants({
-                size: "sm",
+                size: "lg",
                 className:
-                  "font-bold font-karantina text-[2rem] md:text-4xl p-2 md:p-6 ",
+                  "font-bold font-karantina text-[3rem] md:text-6xl p-8 md:p-12 shadow-md",
               })}
               href="/album"
             >
@@ -178,6 +181,63 @@ export default function Home() {
             <Photo
               image={Photo4}
               media_url="https://www.instagram.com/p/CdtDqT7MP8y/"
+            />
+          </motion.div>
+        </section>
+      </Element>
+      <Element name="section4">
+        <section className="relative w-full px-6 md:px-20 py-6 min-h-screen flex flex-col justify-center items-center gap-10 md:gap-20">
+          <motion.div
+            transition={{ ease: "easeInOut", duration: 0.3 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            className="flex flex-col justify-center items-center space-y-2 text-center font-karantina"
+          >
+            <span className="text-primary text-4xl font-bold md:text-4xl">
+              יצירת קשר
+            </span>
+            <h1 className="pb-8 text-3xl md:text-6xl font-bold decoration-dashed decoration-primary underline underline-offset-8">
+              אל תהססו ותתחילו את התהליך עכשיו
+            </h1>
+          </motion.div>
+          <motion.div
+            transition={{ ease: "easeInOut", duration: 0.3 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            className="w-full grid grid-cols-1 md:grid-cols-2 md:last:col-span-2 md:last:w-full lg:grid-cols-3 justify-items-center content-center gap-16"
+          >
+            <ServiceCard
+              title="סמסו לנו בוואצאפ"
+              icon={<FaWhatsapp size={48} className="text-primary" />}
+              description={
+                <NextLink
+                  title="פותח את וואצאפ"
+                  className="underline text-primary decoration-primary"
+                  href="https://wa.me/+972528114746"
+                  target="_blank"
+                >
+                  לחצו כאן
+                </NextLink>
+              }
+            />
+            <ServiceCard
+              title="נווטו למקום בוויז"
+              icon={<FaWaze size={48} className="text-primary" />}
+              description={
+                <NextLink
+                  title="פותח את וויז - ממקם אוטומטית את הסטודיו"
+                  className="underline text-primary decoration-primary"
+                  href="https://ul.waze.com/ul?ll=32.00669395%2C34.95125413&navigate=yes&zoom=17&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location"
+                  target="_blank"
+                >
+                  לחצו כאן
+                </NextLink>
+              }
+            />
+            <ServiceCard
+              title="זמינים גם בטלפון"
+              icon={<FaPhone size={48} className="text-primary" />}
+              description={"טלפון אישי - 0528114746"}
             />
           </motion.div>
         </section>

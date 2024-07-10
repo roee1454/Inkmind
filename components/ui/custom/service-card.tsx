@@ -9,7 +9,7 @@ import {
 
 interface ServiceCardProps {
     title: string,
-    description: string,
+    description: any,
     icon: any,
 }
 

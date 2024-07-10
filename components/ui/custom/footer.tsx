@@ -34,9 +34,22 @@ export default function Footer() {
             className="underline md:no-underline hover:text-primary transition-colors"
             prefetch={false}
           >
-            נגישות
+            הצהרת נגישות
           </Link>
-          <span >הזכויות שמורות לרואי חיילי &copy;</span>
+          <Link
+            href="/accessability"
+            className="underline md:no-underline hover:text-primary transition-colors"
+            prefetch={false}
+          >
+            פרטיות
+          </Link>
+          <Link
+            href="/accessability"
+            className="underline md:no-underline hover:text-primary transition-colors"
+            prefetch={false}
+          >
+            תקנון האתר
+          </Link>
         </div>
       </div>
     </footer>

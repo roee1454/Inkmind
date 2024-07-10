@@ -23,7 +23,11 @@ export default function Navbar() {
   return (
     <div className="w-full z-50 font-karantina">
       <div className="flex flex-row justify-between items-center px-6 md:px-20 py-6">
-        <Link aria-label="דף בית" href="/" className="text-3xl md:text-6xl font-bold cursor-pointer">
+        <Link
+          aria-label="דף בית"
+          href="/"
+          className="text-3xl md:text-6xl font-bold cursor-pointer"
+        >
           בס&quot;ד
         </Link>
         {/* Mobile Menu */}
@@ -67,12 +71,6 @@ export default function Navbar() {
                   href="/album"
                   handleCloseOnRedirect={handleCloseOnRedirect}
                 />
-                <NavDrawerItem
-                  title="יצירת קשר"
-                  icon={<Contact />}
-                  href="/contact"
-                  handleCloseOnRedirect={handleCloseOnRedirect}
-                />
               </div>
             </DrawerContent>
           </Drawer>
@@ -82,7 +80,6 @@ export default function Navbar() {
         <div className="hidden md:flex flex-row justify-center items-center space-x-6 px-6 py-4">
           <NavItem title="אודות" href="/about" />
           <NavItem title="אלבום" href="/album" />
-          <NavItem title="יצירת קשר" href="/contact" />
           <ModeToggle />
         </div>
       </div>
