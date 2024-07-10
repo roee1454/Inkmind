@@ -68,18 +68,17 @@ export default function Home() {
                     div?.focus();
                   }
                   if (e.key === "Enter") {
-                    const div = document.getElementById("focusable");
+                    const div = document.getElementById("focusable")
                     div?.click();
                   }
                 }}
                 className={buttonVariants({
-                  size: "lg",
                   className:
-                    "font-bold font-karantina text-[3rem] p-8 lg:p-12 cursor-pointer shadow-md",
+                    "font-bold font-karantina text-[2rem] md:text-5xl p-8 lg:p-12 cursor-pointer shadow-md",
                 })}
               >
                 ראה עוד{" "}
-                <ArrowDown className="mr-2 w-5 h-5 md:w-8 md:h-8 lg:w-12 lg:h-12 animate-bounce" />
+                <ArrowDown className="mr-2 w-6 h-6 md:w-8 md:h-8 lg:w-12 lg:h-12 animate-bounce" />
               </Link>
             </motion.div>
             <div className="relative w-full">
@@ -151,9 +150,9 @@ export default function Home() {
             </h1>
             <NextLink
               className={buttonVariants({
-                size: "lg",
+                size: 'lg',
                 className:
-                  "font-bold font-karantina text-[3rem] md:text-6xl p-8 md:p-12 shadow-md",
+                  "font-bold font-karantina text-5xl p-8 shadow-md",
               })}
               href="/album"
             >
@@ -168,7 +167,7 @@ export default function Home() {
           >
             <Photo
               image={Photo1}
-              media_url="https://www.instagram.com/p/CxJACpJskhm/"
+            media_url="https://www.instagram.com/p/CxJACpJskhm/"
             />
             <Photo
               image={Photo2}
