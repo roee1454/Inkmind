@@ -12,7 +12,6 @@ import Photo1 from "../public/photo1.jpg";
 import Photo2 from "../public/photo2.jpg";
 import Photo3 from "../public/photo3.jpg";
 import Photo4 from "../public/photo4.jpg";
-import { Button, buttonVariants } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { Element, Link } from "react-scroll";
 import NextLink from "next/link";
@@ -31,7 +30,7 @@ export default function Home() {
               transition={{ ease: "easeInOut", duration: 0.3 }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="w-full flex flex-col items-center lg:items-start gap-5 md:gap-10 space-y-4 md:space-y-1 text-4xl md:text-5xl lg:text-6xl text-center lg:text-start font-bold"
+              className="w-full flex flex-col items-center lg:items-start gap-5 md:gap-10 space-y-4 md:space-y-1 text-3xl md:text-5xl lg:text-6xl text-center lg:text-start font-bold"
             >
               <span className="font-karantina flex flex-col gap-5">
                 <h1
@@ -68,14 +67,13 @@ export default function Home() {
                     div?.focus();
                   }
                   if (e.key === "Enter") {
-                    const div = document.getElementById("focusable")
+                    const div = document.getElementById("focusable");
                     div?.click();
                   }
                 }}
-                className={buttonVariants({
-                  className:
-                    "font-bold font-karantina text-[2rem] md:text-5xl p-8 lg:p-12 cursor-pointer shadow-md",
-                })}
+                className={
+                  "font-bold font-karantina text-[2rem] md:text-5xl px-4 py-2 focus:outline-primary text-white lg:p-6 cursor-pointer shadow-md bg-primary rounded-md flex items-center gap-2"
+                }
               >
                 ראה עוד{" "}
                 <ArrowDown className="mr-2 w-6 h-6 md:w-8 md:h-8 lg:w-12 lg:h-12 animate-bounce" />
@@ -149,12 +147,10 @@ export default function Home() {
               קצת לקוחות מרוצים
             </h1>
             <NextLink
-              className={buttonVariants({
-                size: 'lg',
-                className:
-                  "font-bold font-karantina text-5xl p-8 shadow-md",
-              })}
-              href="/album"
+              className={
+                "font-bold font-karantina text-[2rem] md:text-5xl px-4 py-2 focus:outline-primary text-white lg:p-8 cursor-pointer shadow-md bg-primary rounded-md flex items-center gap-2"
+              }
+              href="/tattoos-album"
             >
               ראו עוד עבודות
             </NextLink>
@@ -167,7 +163,7 @@ export default function Home() {
           >
             <Photo
               image={Photo1}
-            media_url="https://www.instagram.com/p/CxJACpJskhm/"
+              media_url="https://www.instagram.com/p/CxJACpJskhm/"
             />
             <Photo
               image={Photo2}

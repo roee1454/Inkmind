@@ -50,7 +50,7 @@ export default function ImageSwiper({
               key={index}
             >
               <AspectRatio
-                ratio={24 / 16}
+                ratio={20 / 16}
                 className="bg-muted w-full h-full shadow-md rounded-lg"
               >
                 <Image

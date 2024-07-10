@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="flex items-center gap-4">
           <Link
             target="_blank"
-            href="https://www.facebook.com/roee_h1/"
+            href="https://www.facebook.com/dor_tattoos/"
             aria-label="Facebook"
             prefetch={false}
           >
@@ -19,7 +19,7 @@ export default function Footer() {
           </Link>
           <Link
             target="_blank"
-            href="https://instagram.com/roee_h1"
+            href="https://instagram.com/dor_tattoos"
             aria-label="Instagram"
             prefetch={false}
           >
@@ -37,14 +37,14 @@ export default function Footer() {
             הצהרת נגישות
           </Link>
           <Link
-            href="/accessability"
+            href="/privacy"
             className="underline md:no-underline hover:text-primary transition-colors"
             prefetch={false}
           >
             פרטיות
           </Link>
           <Link
-            href="/accessability"
+            href="/terms-conditions"
             className="underline md:no-underline hover:text-primary transition-colors"
             prefetch={false}
           >

@@ -66,9 +66,15 @@ export default function Navbar() {
                   handleCloseOnRedirect={handleCloseOnRedirect}
                 />
                 <NavDrawerItem
-                  title="אלבום"
+                  title="אלבום קעקועים"
                   icon={<GalleryHorizontal />}
-                  href="/album"
+                  href="/tattoos-album"
+                  handleCloseOnRedirect={handleCloseOnRedirect}
+                />
+                <NavDrawerItem
+                  title="אלבום פירסינג"
+                  icon={<GalleryHorizontal />}
+                  href="/piercing-album"
                   handleCloseOnRedirect={handleCloseOnRedirect}
                 />
               </div>
@@ -79,7 +85,8 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <div className="hidden md:flex flex-row justify-center items-center space-x-6 px-6 py-4">
           <NavItem title="אודות" href="/about" />
-          <NavItem title="אלבום" href="/album" />
+          <NavItem title="אלבום קעקועים" href="/tattoos-album" />
+          <NavItem title="אלבום פירסינג" href="/piercing-album" />
           <ModeToggle />
         </div>
       </div>
