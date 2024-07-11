@@ -43,13 +43,6 @@ export default function Footer() {
           >
             פרטיות
           </Link>
-          <Link
-            href="/terms-conditions"
-            className="underline md:no-underline hover:text-primary transition-colors"
-            prefetch={false}
-          >
-            תקנון האתר
-          </Link>
         </div>
       </div>
     </footer>

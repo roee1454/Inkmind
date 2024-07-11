@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, User, Home, GalleryHorizontal, Contact } from "lucide-react";
+import { Menu, User, Home, GalleryHorizontal } from "lucide-react";
 import {
   Drawer,
   DrawerContent,
@@ -12,6 +12,7 @@ import {
 import { Button } from "../button";
 import { useState } from "react";
 import { ModeToggle } from "./theme-toggle";
+import Logo from "../../../public/Logo.png";
 
 export default function Navbar() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -26,9 +27,13 @@ export default function Navbar() {
         <Link
           aria-label="דף בית"
           href="/"
-          className="text-3xl md:text-6xl font-bold cursor-pointer"
+          className="cursor-pointer rounded-full"
         >
-          בס&quot;ד
+          <Image
+            className="w-20 h-20 md:w-32 md:h-32 object-cover rounded-full px-0"
+            src={Logo}
+            alt="לוגו עסק"
+          />
         </Link>
         {/* Mobile Menu */}
         <div className="lg:hidden flex flex-row justify-center items-center">
