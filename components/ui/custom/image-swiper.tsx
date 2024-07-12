@@ -10,10 +10,12 @@ import StampIcon from "../../../public/Stamp.png";
 interface ImageSwiperProps {
   images: StaticImport[];
   switchTimeInSeconds: number;
+  aspectRatio?: number;
 }
 
 export default function ImageSwiper({
   images,
+  aspectRatio,
   switchTimeInSeconds,
 }: ImageSwiperProps) {
   const [currentImage, setCurrentImage] = useState<number>(0);
@@ -50,7 +52,7 @@ export default function ImageSwiper({
               key={index}
             >
               <AspectRatio
-                ratio={26/22}
+                ratio={aspectRatio || 26 / 22}
                 className="bg-muted w-full h-full shadow-xl rounded-lg border-foreground border-4"
               >
                 <Image

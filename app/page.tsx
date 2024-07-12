@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <div className="w-full min-h-full">
       <ScrollProgressBar />
-      <main className="h-[90vh] w-full px-6 md:px-20 py-6">
+      <main className="h-[80vh] w-full px-6 md:px-20 py-6">
         <AnimatePresence mode="wait">
           <div className="w-full h-full flex flex-col lg:flex-row justify-center lg:justify-between items-center gap-20 md:gap-15 lg:gap-10">
             <motion.div
@@ -89,7 +89,8 @@ export default function Home() {
                   SwiperImage3,
                   SwiperImage4,
                 ]}
-                switchTimeInSeconds={3}
+                switchTimeInSeconds={5}
+                aspectRatio={26 / 20}
               />
             </div>
           </div>
