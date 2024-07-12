@@ -13,6 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      
       <title>Inkmind Tattoos</title>
       <body>
         <div dir="rtl">
