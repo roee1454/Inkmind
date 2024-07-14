@@ -11,6 +11,7 @@ interface ServiceCardProps {
     title: string,
     description: any,
     icon: any,
+    href?: string
 }
 
 export default function ServiceCard({ title, description, icon }: ServiceCardProps) {

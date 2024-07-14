@@ -9,6 +9,7 @@ export default function QueryProvider({ children }: any) {
         refetchOnReconnect: false,
         refetchOnWindowFocus: false,
         refetchOnMount: false,
+        retry: 1,
       },
     },
   });

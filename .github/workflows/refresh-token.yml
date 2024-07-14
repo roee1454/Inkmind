@@ -1,0 +1,14 @@
+name: Refresh Instagram Token
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Every day at midnight
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  refresh-token:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Refresh Token API
+        run: |
+          curl -X GET https://landing-page-template-ruby.vercel.app/api/refreshToken
