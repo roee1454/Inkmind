@@ -8,8 +8,8 @@ export async function GET(req: NextRequest) {
     const data = await response.json();
 
     if (data.access_token) {
-      const vercelToken = process.env.VERCEL_API_TOKEN; // Your Vercel API token
-      const projectId = process.env.VERCEL_PROJECT_ID; // Your Vercel project ID
+      const vercelToken = process.env.NEXT_PUBLIC_VERCEL_API_TOKEN; // Your Vercel API token
+      const projectId = process.env.NEXT_PUBLIC_VERCEL_PROJECT_ID; // Your Vercel project ID
       const envVariableName = 'NEXT_PUBLIC_INSTAGRAM_TOKEN';
 
       const vercelResponse = await fetch(`https://api.vercel.com/v9/projects/${projectId}/env/${envVariableName}`, {
