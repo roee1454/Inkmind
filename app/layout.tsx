@@ -26,7 +26,7 @@ export default function RootLayout({
             </ThemeProvider>
           </QueryProvider>
         </div>
-        <script src="/nagishli_beta.js" defer></script>
+        <script src="https://cdn.enable.co.il/licenses/enable-L23490xm54kyboqr-1223-61173/init.js"></script>
       </body>
     </html>
   );
