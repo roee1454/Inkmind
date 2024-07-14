@@ -13,8 +13,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      
-      <title>Inkmind Tattoos</title>
+      <head>
+        <title>Inkmind Tattoos</title>
+        <script
+          src="https://cdn.enable.co.il/licenses/enable-L23490xm54kyboqr-1223-61173/init.js"
+          async
+        ></script>
+      </head>
       <body>
         <div dir="rtl">
           <QueryProvider>
@@ -26,7 +31,6 @@ export default function RootLayout({
             </ThemeProvider>
           </QueryProvider>
         </div>
-        <script src="https://cdn.enable.co.il/licenses/enable-L23490xm54kyboqr-1223-61173/init.js" defer></script>
       </body>
     </html>
   );
