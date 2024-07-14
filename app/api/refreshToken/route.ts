@@ -28,7 +28,7 @@ export async function GET(req: NextRequest) {
         return NextResponse.json({ message: 'Token refreshed and updated successfully', token: data.access_token });
       } else {
         const vercelError = await vercelResponse.json();
-        return NextResponse.json({ error: vercelError.message, vercelToken, projectId }, { status: 500 });
+        return NextResponse.json({ error: vercelError, vercelToken, projectId }, { status: 500 });
       }
     } else {
       return NextResponse.json({ error: 'Failed to refresh token' }, { status: 500 });
