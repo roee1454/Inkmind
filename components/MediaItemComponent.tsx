@@ -18,7 +18,7 @@ const MediaItemComponent: React.FC<MediaItemProps> = ({ item }) => {
         <Link target="_blank" href={item.permalink!}>
           <img
             src={item.media_url}
-            alt={item.caption || "תמונה מהאינסטגרם"}
+            alt={"תמונה מהאינסטגרם - לינק לפוסט חיצוני באינסטגרם"}
             className="w-full h-full"
           />
         </Link>
@@ -34,11 +34,13 @@ const MediaItemComponent: React.FC<MediaItemProps> = ({ item }) => {
         </video>
       )}
       {item.media_type === "CAROUSEL_ALBUM" && item.children && (
-        <img
-          src={item.children.data[0].media_url}
-          alt={item.children.data[0].caption || "תמונה מהאינסטגרם"}
-          className="w-full h-full"
-        />
+        <Link target="_blank" href={item.permalink!}>
+          <img
+            src={item.children.data[0].media_url}
+            alt={"תמונה מהאינסטגרם - לינק לפוסט חיצוני באינסטגרם"}
+            className="w-full h-full"
+          />
+        </Link>
       )}
     </AspectRatio>
   );

@@ -23,14 +23,14 @@ export default function GalleryPage() {
       getNextPageParam: (lastPage) => lastPage.paging?.cursors?.after || null,
     });
 
-  const items = data?.pages.flatMap((page) => page.data) || [];
+  const items = data?.pages.flatMap((page) => page.data).filter((item: MediaItem) => item.media_type !== "VIDEO") || [];
 
   return (
     <div className="min-h-screen w-full px-6 md:px-20 py-6 font-karantina">
       <motion.div
         transition={{ ease: "easeInOut", duration: 0.3 }}
         initial={{ opacity: 0, scale: 0.8 }}
-        whileInView={{ opacity: 1, scale: 1 }}
+        animate={{ opacity: 1, scale: 1 }}
         className="flex flex-col justify-center items-center space-y-2 text-center pb-8"
       >
         <span aria-label="אלבום הסטודיו" className="text-primary text-4xl font-bold md:text-4xl">
@@ -44,7 +44,7 @@ export default function GalleryPage() {
         <motion.div
           transition={{ ease: "easeInOut", duration: 0.6 }}
           initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          animate={{ opacity: 1, scale: 1 }}
           aria-label="מסך טעינה לאלבום - אלבום טוען"
           className="w-full h-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
         >
@@ -60,7 +60,7 @@ export default function GalleryPage() {
           ))}
         </motion.div>
       ) : (
-        <div aria-label="רשימת תמונות וסרטונים" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div aria-label="רשימת תמונות" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {items.map((item: MediaItem) => (
             <MediaItemComponent key={item.id} item={item} />
           ))}

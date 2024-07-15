@@ -59,7 +59,7 @@ export default function ImageSwiper({
                   draggable={false}
                   src={images[currentImage]}
                   priority
-                  alt="Hero Image - Tiger Tattoo"
+                  alt={`תמונה ${currentImage + 1} מתוך ${images.length}`}
                   className="w-full h-full object-cover"
                 />
               </AspectRatio>

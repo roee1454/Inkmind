@@ -25,19 +25,21 @@ export default function Home() {
   return (
     <div className="w-full min-h-full">
       <ScrollProgressBar />
-      <main className="h-[80vh] w-full px-6 md:px-20 py-6">
+      <main className="h-[80vh] w-full px-6 md:px-20 py-6" aria-label="חלק ראשי">
         <AnimatePresence mode="wait">
-          <div className="w-full h-full flex flex-col lg:flex-row justify-center lg:justify-between items-center gap-20 md:gap-15 lg:gap-10">
+          <div className="w-full h-full flex flex-col lg:flex-row justify-center lg:justify-between items-center gap-20 md:gap-15 lg:gap-10" aria-label="היכרות עם הצוות">
             <motion.div
               transition={{ ease: "easeInOut", duration: 0.3 }}
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              whileInView={{ opacity: 1 }}
               className="w-full flex flex-col items-center lg:items-start gap-5 md:gap-10 space-y-4 md:space-y-1 text-3xl md:text-5xl lg:text-6xl text-center lg:text-start font-bold"
+              aria-label="מידע כללי על השירות"
             >
               <span className="font-karantina flex flex-col gap-5">
                 <h1
                   title="מילים דינמיות - אנימציה"
                   className="flex flex-row justify-center lg:justify-start items-center space-x-2"
+                  aria-label="מילות מפתח מתחלפות"
                 >
                   <p className="transition-all">We Got You</p>
                   <FlipWords
@@ -48,6 +50,7 @@ export default function Home() {
                 <h2
                   title="כותרת משנה"
                   className="font-bold text-foreground text-[2.75rem]"
+                  aria-label="הבטחה לעבודה עם כל עיצוב שתבחרו"
                 >
                   צוות המקעקעים שלנו יוכל לעבוד עם כל עיצוב שתבחרו{" "}
                   <span className="decoration-primary decoration-wavy underline underline-offset-8">
@@ -76,6 +79,7 @@ export default function Home() {
                 className={
                   "font-bold font-karantina text-[2rem] md:text-5xl px-4 py-2 focus:outline-primary text-white lg:p-6 cursor-pointer shadow-md bg-primary rounded-md flex items-center gap-2"
                 }
+                aria-label="ראה עוד מידע"
               >
                 ראה עוד{" "}
                 <ArrowDown className="mr-2 w-6 h-6 md:w-8 md:h-8 lg:w-12 lg:h-12 animate-bounce" />
@@ -97,12 +101,13 @@ export default function Home() {
         </AnimatePresence>
       </main>
       <Element name="section2">
-        <section className="w-full px-6 md:px-20 py-12 min-h-screen flex flex-col justify-center items-center gap-10 md:gap-20">
+        <section className="w-full px-6 md:px-20 py-12 min-h-screen flex flex-col justify-center items-center gap-10 md:gap-20" aria-label="מידע על שירותים">
           <motion.div
             transition={{ ease: "easeInOut", duration: 0.1 }}
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             className="flex flex-col justify-center items-center space-y-2 text-center font-karantina"
+            aria-label="כותרת שירותים"
           >
             <span className="text-primary text-4xl font-bold md:text-4xl">
               שירותים
@@ -116,6 +121,7 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             className="w-full grid grid-cols-1 lg:grid-cols-3 justify-items-center content-center gap-16"
+            aria-label="כרטיסי שירותים"
           >
             <ServiceCard
               title="אפיון מדויק"
@@ -136,12 +142,13 @@ export default function Home() {
         </section>
       </Element>
       <Element name="section3">
-        <section className="w-full px-6 md:px-20 py-12 min-h-screen flex flex-col justify-center items-center gap-10 md:gap-20">
+        <section className="w-full px-6 md:px-20 py-12 min-h-screen flex flex-col justify-center items-center gap-10 md:gap-20" aria-label="פרויקטים">
           <motion.div
             transition={{ ease: "easeInOut", duration: 0.3 }}
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             className="flex flex-col justify-center items-center space-y-2 text-center font-karantina"
+            aria-label="כותרת פרויקטים"
           >
             <span className="text-primary text-4xl font-bold md:text-4xl">
               פרויקטים
@@ -154,6 +161,7 @@ export default function Home() {
                 "font-bold font-karantina text-[2rem] md:text-5xl px-4 py-2 focus:outline-primary text-white lg:p-8 cursor-pointer shadow-md bg-primary rounded-md flex items-center gap-2"
               }
               href="/tattoos-album"
+              aria-label="ראה עבודות נוספות"
             >
               ראו עוד עבודות
             </NextLink>
@@ -163,6 +171,7 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             className="w-full grid grid-cols-1 lg:grid-cols-4 justify-items-center content-center gap-5 sm:gap-7 md:gap-10 lg:gap-15"
+            aria-label="תמונות פרויקטים"
           >
             <Photo
               image={Photo1}
@@ -184,12 +193,13 @@ export default function Home() {
         </section>
       </Element>
       <Element name="section4">
-        <section className="relative w-full px-6 md:px-20 py-6 min-h-screen flex flex-col justify-center items-center gap-10 md:gap-20">
+        <section className="relative w-full px-6 md:px-20 py-6 min-h-screen flex flex-col justify-center items-center gap-10 md:gap-20" aria-label="יצירת קשר">
           <motion.div
             transition={{ ease: "easeInOut", duration: 0.3 }}
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             className="flex flex-col justify-center items-center space-y-2 text-center font-karantina"
+            aria-label="כותרת יצירת קשר"
           >
             <span className="text-primary text-4xl font-bold md:text-4xl">
               יצירת קשר
@@ -202,7 +212,8 @@ export default function Home() {
             transition={{ ease: "easeInOut", duration: 0.3 }}
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            className="w-full grid grid-cols-1 lg:grid-cols-3 justify-items-center content-center gap-16"
+            className="w-full grid grid-cols-1 lg:grid-cols-2 justify-items-center content-center gap-16"
+            aria-label="אפשרויות יצירת קשר"
           >
             <ServiceCard
               title="סמסו לנו בוואצאפ"
@@ -210,6 +221,7 @@ export default function Home() {
               description={
                 <NextLink
                   title="פותח את וואצאפ"
+                  aria-label="פותח את הוואצאפ"
                   className="underline text-primary decoration-primary"
                   href="https://wa.me/+972528114746"
                   target="_blank"
@@ -224,6 +236,7 @@ export default function Home() {
               description={
                 <NextLink
                   title="פותח את וויז - ממקם אוטומטית את הסטודיו"
+                  aria-label="פותח את וויז - ממקם אוטומטית את הסטודיו"
                   className="underline text-primary decoration-primary"
                   href="https://ul.waze.com/ul?ll=32.00669395%2C34.95125413&navigate=yes&zoom=17&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location"
                   target="_blank"
@@ -231,11 +244,6 @@ export default function Home() {
                   לחצו כאן
                 </NextLink>
               }
-            />
-            <ServiceCard
-              title="זמינים גם בטלפון"
-              icon={<FaPhone size={48} className="text-primary" />}
-              description={"טלפון אישי - 0528114746"}
             />
           </motion.div>
         </section>

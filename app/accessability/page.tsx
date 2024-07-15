@@ -219,10 +219,6 @@ const AccessibilityStatement = () => {
         </li>
         <li className="flex items-center">
           <span className="mr-2 text-primary">•</span>
-          <span>הפעולה שניסיתם לבצע</span>
-        </li>
-        <li className="flex items-center">
-          <span className="mr-2 text-primary">•</span>
           <span>סוג הדפדפן וגרסתו</span>
         </li>
         <li className="flex items-center">
