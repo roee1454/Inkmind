@@ -9,6 +9,7 @@ interface MediaItemProps {
 }
 
 const MediaItemComponent: React.FC<MediaItemProps> = ({ item }) => {
+  console.log(item.media_url)
   return (
     <AspectRatio
       ratio={12 / 14}
@@ -36,7 +37,7 @@ const MediaItemComponent: React.FC<MediaItemProps> = ({ item }) => {
       {item.media_type === "CAROUSEL_ALBUM" && item.children && (
         <Link target="_blank" href={item.permalink!}>
           <img
-            src={item.children.data[0].media_url}
+            src={item.media_url}
             alt={"תמונה מהאינסטגרם - לינק לפוסט חיצוני באינסטגרם"}
             className="w-full h-full"
           />
