@@ -25,9 +25,15 @@ export default function Home() {
   return (
     <div className="w-full min-h-full">
       <ScrollProgressBar />
-      <main className="h-[80vh] w-full px-6 md:px-20 py-6" aria-label="חלק ראשי">
+      <main
+        className="h-[80vh] w-full px-6 md:px-20 py-6"
+        aria-label="חלק ראשי"
+      >
         <AnimatePresence mode="wait">
-          <div className="w-full h-full flex flex-col lg:flex-row justify-center lg:justify-between items-center gap-20 md:gap-15 lg:gap-10" aria-label="היכרות עם הצוות">
+          <div
+            className="w-full h-full flex flex-col lg:flex-row justify-center lg:justify-between items-center gap-20 md:gap-15 lg:gap-10"
+            aria-label="היכרות עם הצוות"
+          >
             <motion.div
               transition={{ ease: "easeInOut", duration: 0.3 }}
               initial={{ opacity: 0 }}
@@ -41,11 +47,14 @@ export default function Home() {
                   className="flex flex-row justify-center lg:justify-start items-center space-x-2"
                   aria-label="מילות מפתח מתחלפות"
                 >
-                  <p className="transition-all">We Got You</p>
+                  <p className="transition-all">קעקוע {" "}</p>
                   <FlipWords
-                    words={["Enourmous?", "Minimal?", "Outragous?"]}
+                    words={["עצום?", "צבעוני?", "עדין?"].map((w) =>
+                      w.split("").reverse().join("")
+                    )}
                     className="text-primary dark:text-primary"
                   />{" "}
+                  <p className="transition-all">אל דאגה עלינו</p>
                 </h1>
                 <h2
                   title="כותרת משנה"
@@ -101,7 +110,10 @@ export default function Home() {
         </AnimatePresence>
       </main>
       <Element name="section2">
-        <section className="w-full px-6 md:px-20 py-12 min-h-screen flex flex-col justify-center items-center gap-10 md:gap-20" aria-label="מידע על שירותים">
+        <section
+          className="w-full px-6 md:px-20 py-12 min-h-screen flex flex-col justify-center items-center gap-10 md:gap-20"
+          aria-label="מידע על שירותים"
+        >
           <motion.div
             transition={{ ease: "easeInOut", duration: 0.1 }}
             initial={{ opacity: 0, scale: 0.8 }}
@@ -142,7 +154,10 @@ export default function Home() {
         </section>
       </Element>
       <Element name="section3">
-        <section className="w-full px-6 md:px-20 py-12 min-h-screen flex flex-col justify-center items-center gap-10 md:gap-20" aria-label="פרויקטים">
+        <section
+          className="w-full px-6 md:px-20 py-12 min-h-screen flex flex-col justify-center items-center gap-10 md:gap-20"
+          aria-label="פרויקטים"
+        >
           <motion.div
             transition={{ ease: "easeInOut", duration: 0.3 }}
             initial={{ opacity: 0, scale: 0.8 }}
@@ -193,7 +208,10 @@ export default function Home() {
         </section>
       </Element>
       <Element name="section4">
-        <section className="relative w-full px-6 md:px-20 py-6 min-h-screen flex flex-col justify-center items-center gap-10 md:gap-20" aria-label="יצירת קשר">
+        <section
+          className="relative w-full px-6 md:px-20 py-6 min-h-screen flex flex-col justify-center items-center gap-10 md:gap-20"
+          aria-label="יצירת קשר"
+        >
           <motion.div
             transition={{ ease: "easeInOut", duration: 0.3 }}
             initial={{ opacity: 0, scale: 0.8 }}
@@ -223,7 +241,7 @@ export default function Home() {
                   title="פותח את וואצאפ"
                   aria-label="פותח את הוואצאפ"
                   className="underline text-primary decoration-primary"
-                  href="https://wa.me/+972528114746"
+                  href="https://wa.me/+972553063884"
                   target="_blank"
                 >
                   לחצו כאן

@@ -25,7 +25,7 @@ export default function RootLayout({
           <QueryProvider>
             <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
               <Navbar />
-              <WhatsappButton href="https://wa.me/+972528114746" />
+              <WhatsappButton href="https://wa.me/+972553063884" />
               {children}
               <Footer />
             </ThemeProvider>

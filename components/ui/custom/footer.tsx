@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="flex items-center gap-4">
           <Link
             target="_blank"
-            href="https://www.facebook.com/dor_tattoos/"
+            href="https://www.facebook.com/groups/2212613175694607/user/100075770188018/"
             aria-label="דף פייסבוק של דור טאטוס"
             prefetch={false}
           >
@@ -18,7 +18,7 @@ export default function Footer() {
           </Link>
           <Link
             target="_blank"
-            href="https://instagram.com/dor_tattoos"
+            href="https://www.instagram.com/ink.mind_tattoo/"
             aria-label="דף אינסטגרם של דור טאטוס"
             prefetch={false}
           >
