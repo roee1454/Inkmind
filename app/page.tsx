@@ -223,7 +223,7 @@ export default function Home() {
             />
             <ServiceCard
               title="עבודה מכל הלב"
-              description="יחס אישי לכל לקוח! באווירה חברית ורגוע ומאה אחוז יחס אישי שיגרום לכם להרגיש הכי בבית ובידיים הכי טובות שאפשר."
+              description="יחס אישי לכל לקוח! באווירה חברית ורגועה ומאה אחוז יחס אישי שיגרום לכם להרגיש הכי בבית ובידיים הכי טובות שאפשר."
               icon={<LuHeartHandshake className="text-primary" size={48} />}
             />
             <ServiceCard
