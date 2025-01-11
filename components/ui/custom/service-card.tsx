@@ -27,14 +27,14 @@ export default function ServiceCard({ title, description, icon }: ServiceCardPro
           <div aria-hidden="true">{icon}</div>
           <CardTitle 
             id="כותרת-כרטיס"
-            className="w-full text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center"
+            className="w-full text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center font-mono font-bold"
           >
             {title || ""} 
           </CardTitle>
         </CardHeader>
         <CardDescription 
           id="תיאור-כרטיס"
-          className="w-full text-base sm:text-lg md:text-xl lg:text-2xl text-center"
+          className="w-full text-base sm:text-lg md:text-xl lg:text-2xl text-center font-light"
         >
           { description || "" }
         </CardDescription>

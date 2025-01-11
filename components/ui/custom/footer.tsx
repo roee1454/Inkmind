@@ -24,7 +24,7 @@ export default function Footer() {
           >
             <FaInstagram className="w-6 h-6 cursor-pointer transition hover:text-primary" />
           </Link>
-          <span>&copy; RH Webshop</span>
+          <span>&copy; רואי חיילי</span>
         </div>
         <p aria-label="כתובת העסק - שוהם מרקט דקל 30, Shoham" className="text-muted-foreground text-sm">שוהם מרקט דקל 30, Shoham</p>
         <div className="flex items-center gap-4 text-sm text-muted-foreground">

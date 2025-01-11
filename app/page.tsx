@@ -13,21 +13,106 @@ import Photo2 from "../public/photo2.jpg";
 import Photo3 from "../public/photo3.jpg";
 import Photo4 from "../public/photo4.jpg";
 import { motion, AnimatePresence } from "framer-motion";
-import { Element, Link } from "react-scroll";
+import { Button, Element, Link } from "react-scroll";
 import NextLink from "next/link";
 import { FlipWords } from "@/components/ui/custom/filp-words";
 import ServiceCard from "@/components/ui/custom/service-card";
 import Photo from "@/components/ui/custom/Photo";
 import ImageSwiper from "@/components/ui/custom/image-swiper";
 import ScrollProgressBar from "@/components/ui/custom/scroll-progress-bar";
+import { buttonVariants } from "@/components/ui/button";
 
 export default function Home() {
+  const title = `"קעקוע הוא לא רק קעקוע`;
+  const p1 = `הוא מחשבה, הוא סיפור חיים, הוא יצירת אומנות`;
+  const p2 = `והוא מתבצע עם תשומת לב לכל פרט קטן ודיוק חסר פשרות."`;
   return (
     <div className="w-full min-h-full">
       <ScrollProgressBar />
-      <main
-        className="h-[80vh] w-full px-6 md:px-20 py-6"
+      <div
+        className="h-[80vh] w-full px-6 md:px-20 py-6 text-center flex flex-col justify-around items-center"
         aria-label="חלק ראשי"
+      >
+        <div className="">
+          <h1 className="text-2xl md:text-4xl font-mono text-center text-foreground">
+            {title.split("").map((letter, index) => {
+              return (
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    delay: index * 0.05,
+                    type: "spring",
+                    stiffness: 200,
+                  }}
+                >
+                  {letter}
+                </motion.span>
+              );
+            })}
+          </h1>
+          <p className="text-2xl md:text-4xl font-mono text-center text-foreground">
+            {p1.split("").map((letter, index) => {
+              return (
+                <motion.span
+                  key={`${index}-${letter}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    delay: (title.length + index) * 0.05,
+                    type: "spring",
+                    stiffness: 200,
+                  }}
+                >
+                  {letter}
+                </motion.span>
+              );
+            })}
+          </p>
+          <p className="text-2xl md:text-4xl font-mono text-center text-foreground">
+            {p2.split("").map((letter, index) => {
+              return (
+                <motion.span
+                  key={`${index}-${letter}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    delay: (title.length + p1.length + index) * 0.05,
+                    type: "spring",
+                    stiffness: 200,
+                  }}
+                >
+                  {letter}
+                </motion.span>
+              );
+            })}
+          </p>
+        </div>
+
+        <motion.div transition={{ ease: "easeInOut", duration: 0.3, delay: (title.length + p1.length + p2.length) * 0.05 }} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="flex flex-row justify-center items-center gap-2">
+          <Link
+            className={buttonVariants({
+              variant: "default",
+              className:
+                "w-14 h-14 text-foreground cursor-pointer font-mono font-bold rounded-full shadow-lg",
+            })}
+            to="section1"
+            spy
+            duration={500}
+            smooth
+            tabIndex={0}
+            id="focusable"
+            style={{ borderRadius: "50%" }}
+          >
+            <ArrowDown className="w-8 h-8 md:w-12 md:h-12 lg:w-12 lg:h-12 animate-bounce" />
+          </Link>
+        </motion.div>
+      </div>
+      <Element
+        name="section1"
+        className="h-screen w-full px-6 md:px-20 py-6"
+        aria-label="חלק שני"
       >
         <AnimatePresence mode="wait">
           <div
@@ -37,35 +122,31 @@ export default function Home() {
             <motion.div
               transition={{ ease: "easeInOut", duration: 0.3 }}
               initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              className="w-full flex flex-col items-center lg:items-start gap-5 md:gap-10 space-y-4 md:space-y-1 text-3xl md:text-5xl lg:text-6xl text-center lg:text-start font-bold"
+              whileInView={{ opacity: 1}}
+              className="w-full flex flex-col items-center lg:items-start gap-5 md:gap-10 space-y-4 md:space-y-1 text-4xl md:text-6xl lg:text-8xl text-center lg:text-start font-bold"
               aria-label="מידע כללי על השירות"
             >
               <span className="font-karantina flex flex-col gap-5">
                 <h1
                   title="מילים דינמיות - אנימציה"
-                  className="flex flex-row justify-center lg:justify-start items-center space-x-2"
+                  className="flex flex-row justify-center lg:justify-start items-center space-x-2 text-6xl md:text-6xl lg:text-8xl"
                   aria-label="מילות מפתח מתחלפות"
                 >
-                  <p className="transition-all">קעקוע {" "}</p>
+                  <p className="transition-all">קעקוע </p>
                   <FlipWords
-                    words={["עצום?", "צבעוני?", "עדין?"].map((w) =>
+                    words={["גדול?", "צבעוני?", "עדין?"].map((w) =>
                       w.split("").reverse().join("")
                     )}
                     className="text-primary dark:text-primary"
                   />{" "}
-                  <p className="transition-all">אל דאגה עלינו</p>
                 </h1>
                 <h2
                   title="כותרת משנה"
-                  className="font-bold text-foreground text-[2.75rem]"
+                  className="font-bold text-foreground text-[2rem] md:text-[2.75rem]"
                   aria-label="הבטחה לעבודה עם כל עיצוב שתבחרו"
                 >
-                  צוות המקעקעים שלנו יוכל לעבוד עם כל עיצוב שתבחרו{" "}
-                  <span className="decoration-primary decoration-wavy underline underline-offset-8">
-                    בהבטחה
-                  </span>
-                  !
+                  אצלנו בInkmind Tattoo מתמחים במגוון סגנונות ואנחנו כאן כדי
+                  להפוך את הרעיון שלך ליצירת אומנות ברמה הכי גבוהה שיש!{" "}
                 </h2>
               </span>
               <Link
@@ -108,7 +189,7 @@ export default function Home() {
             </div>
           </div>
         </AnimatePresence>
-      </main>
+      </Element>
       <Element name="section2">
         <section
           className="w-full px-6 md:px-20 py-12 min-h-screen flex flex-col justify-center items-center gap-10 md:gap-20"
@@ -137,17 +218,17 @@ export default function Home() {
           >
             <ServiceCard
               title="אפיון מדויק"
-              description="נביט אל תוך המוח שלכם ונכיר אתכם על מנת לחשוב לאפיין ולבחון את העיצוב שאתם באמת חושקים בו"
+              description="עיצוב והתאמה אישית לכל לקוח, תשומת לב לכל פרט ודיוק חסר פשרות עד לתוצאה המושלמת! אצלנו בסטודיו אנו מתמחים במגוון סגנונות קעקוע!"
               icon={<SlTarget className="text-primary" size={48} />}
             />
             <ServiceCard
               title="עבודה מכל הלב"
-              description="נשקיע בכם את כל הזמן שצריך על מנת שהקעקוע יצא איכותי ומושקע! ניתן גם לחלק את המפגשים לסשנים"
+              description="יחס אישי לכל לקוח! באווירה חברית ורגוע ומאה אחוז יחס אישי שיגרום לכם להרגיש הכי בבית ובידיים הכי טובות שאפשר."
               icon={<LuHeartHandshake className="text-primary" size={48} />}
             />
             <ServiceCard
               title="שירותי פירסינג"
-              description="אנחנו מציעים גם שירותי פירסינג עם מגוון מומחים"
+              description="שירות הפירסינג שלנו מבוצע מתיאום מראש והוא כולל ייעוץ מקצועי עם התאמה אישית של כל פירסינג בהתאם למבנה האוזן שלכם! וכמובן ליווי ועזרה לאורך כל הדרך גם לאחר ביצוע הפירסינג ועד להחלמה!"
               icon={<GiPiercingSword className="text-primary" size={48} />}
             />
           </motion.div>
@@ -166,10 +247,10 @@ export default function Home() {
             aria-label="כותרת פרויקטים"
           >
             <span className="text-primary text-4xl font-bold md:text-4xl">
-              פרויקטים
+              גלריית עבודות
             </span>
             <h1 className="pb-8 text-4xl md:text-6xl font-bold decoration-solid decoration-primary underline underline-offset-8">
-              קצת לקוחות מרוצים
+              רוצים גם אתם להופיע כאן? גללו למטה
             </h1>
             <NextLink
               className={
@@ -219,12 +300,12 @@ export default function Home() {
             className="flex flex-col justify-center items-center space-y-2 text-center font-karantina"
             aria-label="כותרת יצירת קשר"
           >
-            <span className="text-primary text-4xl font-bold md:text-4xl">
+            <span className="text-foreground text-6xl font-bold md:text-8xl">
               יצירת קשר
             </span>
-            <h1 className="pb-8 text-3xl md:text-6xl font-bold decoration-dashed decoration-primary underline underline-offset-8">
+            {/* <h1 className="pb-8 text-3xl md:text-6xl font-bold decoration-dashed decoration-primary underline underline-offset-8">
               אל תהססו ותתחילו את התהליך עכשיו
-            </h1>
+            </h1> */}
           </motion.div>
           <motion.div
             transition={{ ease: "easeInOut", duration: 0.3 }}

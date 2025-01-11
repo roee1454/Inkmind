@@ -61,6 +61,7 @@
     scrollbar-gutter: auto;
     scroll-behavior: smooth;
     overflow-x: hidden;
+    transition: all .3s ease-in-out;
   }
 
   div#NagishLiTrigger {

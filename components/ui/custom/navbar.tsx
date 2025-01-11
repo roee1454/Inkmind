@@ -13,6 +13,7 @@ import { Button } from "../button";
 import { useState } from "react";
 import { ModeToggle } from "./theme-toggle";
 import Logo from "../../../public/Logo.png";
+import NewLogo from '@/assets/logo.jpeg'
 
 export default function Navbar() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -30,8 +31,8 @@ export default function Navbar() {
           className="cursor-pointer rounded-full"
         >
           <Image
-            className="w-20 h-20 md:w-32 md:h-32 object-cover rounded-full px-0"
-            src={Logo}
+            className="w-20 h-20 md:w-32 md:h-32 object-cover rounded-full px-0 dark:border-4 dark:border-white"
+            src={NewLogo}
             alt="לוגו עסק"
           />
         </Link>
