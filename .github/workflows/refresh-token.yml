@@ -11,4 +11,4 @@ jobs:
     steps:
       - name: Call Refresh Token API
         run: |
-          curl -X GET https://landing-page-template-ruby.vercel.app/api/refreshToken
+          curl -X GET https://inkmindtattoos.com/api/refreshToken
