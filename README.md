@@ -1,4 +1,4 @@
-### Inkmind Website
+# Inkmind Website
 Developed using the following tech stack:
 - React
 - NextJS
