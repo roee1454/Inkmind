@@ -1,8 +1,31 @@
 'use client'
-import React from 'react';
+
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const PrivacyPolicy: React.FC = () => {
+  const [lastUpdated, setLastUpdated] = useState<string>('');
+
+  useEffect(() => {
+    const getDynamicDate = () => {
+      const now = new Date();
+      const currentMonth = now.getMonth(); // 0-indexed
+      const currentYear = now.getFullYear();
+
+      // Find the start month of the current quarter (0: Jan, 3: Apr, 6: Jul, 9: Oct)
+      const quarterStartMonth = Math.floor(currentMonth / 3) * 3;
+      
+      const monthsHebrew = [
+        'בינואר', 'בפברואר', 'במרץ', 'באפריל', 'במאי', 'ביוני',
+        'ביולי', 'באוגוסט', 'בספטמבר', 'באוקטובר', 'בנובמבר', 'בדצמבר'
+      ];
+
+      return `11 ${monthsHebrew[quarterStartMonth]} ${currentYear}`;
+    };
+
+    setLastUpdated(getDynamicDate());
+  }, []);
+
   return (
     <motion.div
       className="min-h-screen w-full px-6 md:px-20 py-6 font-sans"
@@ -90,7 +113,7 @@ const PrivacyPolicy: React.FC = () => {
       </section>
 
       <p className="font-bold">Inkmind - עסק קעקועים</p>
-      <p className="italic">תאריך עדכון אחרון: 11 ביולי 2024</p>
+      <p className="italic">תאריך עדכון אחרון: {lastUpdated || 'טוען...'}</p>
     </motion.div>
   );
 };

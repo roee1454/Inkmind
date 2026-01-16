@@ -6,6 +6,8 @@ import Footer from "@/components/ui/custom/footer";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import QueryProvider from "@/components/ui/custom/query-provider";
 
+import { ENABLE_CDN_URL } from "@/lib/enable";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -15,7 +17,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <title>Inkmind Tattoos</title>
-        <script defer src="https://cdn.enable.co.il/licenses/enable-L23490xm54kyboqr-1223-77789/init.js"></script>
+        
       </head>
       <body>
         <div dir="rtl">
@@ -28,6 +30,7 @@ export default function RootLayout({
             </ThemeProvider>
           </QueryProvider>
         </div>
+       <script src={ENABLE_CDN_URL}></script>
       </body>
     </html>
   );
