@@ -1,4 +1,3 @@
-"use client";
 import "./globals.css";
 import Navbar from "@/components/ui/custom/navbar";
 import WhatsappButton from "@/components/ui/custom/whatsapp-button";
@@ -8,6 +7,13 @@ import QueryProvider from "@/components/ui/custom/query-provider";
 
 import { ENABLE_CDN_URL } from "@/lib/enable";
 import Script from "next/script";
+
+export const metadata = {
+  metadataBase: new URL("https://inkmindtattoos.com"),
+  alternates: {
+    canonical: "https://inkmindtattoos.com",
+  },
+};
 
 export default function RootLayout({
   children,

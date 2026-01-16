@@ -3,6 +3,7 @@ import React from "react";
 import { MediaItem } from "@/lib/fetchInstagramData";
 import { AspectRatio } from "./ui/aspect-ratio";
 import Link from "next/link";
+import Image from "next/image";
 
 interface MediaItemProps {
   item: MediaItem;
@@ -17,29 +18,32 @@ const MediaItemComponent: React.FC<MediaItemProps> = ({ item }) => {
     >
       {item.media_type === "IMAGE" && (
         <Link target="_blank" href={item.permalink!}>
-          <img
+          <Image
             src={item.media_url}
             alt={"תמונה מהאינסטגרם - לינק לפוסט חיצוני באינסטגרם"}
-            className="w-full h-full"
+            className="w-full h-full object-cover"
+            width={300}
+            height={350}
           />
         </Link>
       )}
       {item.media_type === "VIDEO" && (
-        <video controls className="w-full h-full">
+        <video controls className="w-full h-full" aria-label={item.caption || "סרטון מהאינסטגרם"}>
           <source
             src={item.media_url}
             type="video/mp4"
-            aria-label={item.caption || "סרטון מהאינסטגרם"}
             className="w-full h-full"
           />
         </video>
       )}
       {item.media_type === "CAROUSEL_ALBUM" && item.children && (
         <Link target="_blank" href={item.permalink!}>
-          <img
+          <Image
             src={item.media_url}
             alt={"תמונה מהאינסטגרם - לינק לפוסט חיצוני באינסטגרם"}
-            className="w-full h-full"
+            className="w-full h-full object-cover"
+            width={300}
+            height={350}
           />
         </Link>
       )}
