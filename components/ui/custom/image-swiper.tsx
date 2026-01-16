@@ -68,6 +68,7 @@ export default function ImageSwiper({
                   draggable={false}
                   className="w-24 lg:w-52 h-24 lg:h-52 rotate-12"
                   src={StampIcon}
+                  priority
                   alt="חותמת - אישור"
                 />
               </div>

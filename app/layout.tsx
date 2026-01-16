@@ -12,13 +12,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <title>Inkmind Tattoos</title>
-        <script
-          src="https://cdn.enable.co.il/licenses/enable-L23490xm54kyboqr-1223-61173/init.js"
-          async
-        ></script>
+        <script defer src="https://cdn.enable.co.il/licenses/enable-L23490xm54kyboqr-1223-77789/init.js"></script>
       </head>
       <body>
         <div dir="rtl">

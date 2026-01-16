@@ -33,6 +33,7 @@ export default function Navbar() {
           <Image
             className="w-20 h-20 md:w-32 md:h-32 object-cover rounded-full px-0 dark:border-4 dark:border-white"
             src={NewLogo}
+            priority
             alt="לוגו עסק"
           />
         </Link>

@@ -17,7 +17,7 @@ interface ServiceCardProps {
 export default function ServiceCard({ title, description, icon }: ServiceCardProps) {
   return (
     <Card 
-      className="w-full border-4 border-primary p-4 shadow-2xl sm:p-6 md:p-8 font-sans"
+      className="w-full border-4 border-primary p-4 shadow-2xl sm:p-6 md:p-8 font-karantina"
       role="region"
       aria-labelledby="כותרת-כרטיס"
       aria-describedby="תיאור-כרטיס"
@@ -27,7 +27,7 @@ export default function ServiceCard({ title, description, icon }: ServiceCardPro
           <div aria-hidden="true">{icon}</div>
           <CardTitle 
             id="כותרת-כרטיס"
-            className="w-full text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center font-mono font-bold"
+            className="w-full text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center font-bold"
           >
             {title || ""} 
           </CardTitle>

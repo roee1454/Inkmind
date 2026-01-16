@@ -5,6 +5,9 @@ import MediaItemComponent from "@/components/MediaItemComponent";
 import { motion } from "framer-motion";
 import { Skeleton } from "@/components/ui/skeleton";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
+import Link from "next/link";
+import { buttonVariants } from "@/components/ui/button";
 
 const fetchToken = async () => {
   const response = await fetch('/api/getToken');
@@ -18,9 +21,10 @@ const fetchInstagramDataWithCursor = async ({ pageParam = null }: { pageParam?: 
 };
 
 export default function GalleryPage() {
-  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } =
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading, isError } =
     useInfiniteQuery("instagramMedia", fetchInstagramDataWithCursor, {
       getNextPageParam: (lastPage) => lastPage.paging?.cursors?.after || null,
+      retry: 1
     });
 
   const items = data?.pages.flatMap((page) => page.data).filter((item: MediaItem) => item.media_type !== "VIDEO") || [];
@@ -58,6 +62,45 @@ export default function GalleryPage() {
               <Skeleton className="w-full h-full rounded" />
             </AspectRatio>
           ))}
+        </motion.div>
+      ) : isError ? (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="flex flex-col items-center justify-center space-y-10 py-12 text-center"
+        >
+          <div className="space-y-4">
+            <p className="text-4xl md:text-6xl font-bold">
+              מצטערים, לא הצלחנו לטעון את התמונות כרגע.
+            </p>
+            <p className="text-2xl md:text-4xl">
+              אתם מוזמנים להיכנס לעמודי האינסטגרם והפייסבוק שלנו ולהתרשם שם!
+            </p>
+          </div>
+          <div className="flex flex-row sm:flex-row gap-8">
+            <Link
+              target="_blank"
+              href="https://www.instagram.com/ink.mind_tattoo/"
+              className={buttonVariants({
+                variant: "default",
+                size: "lg",
+                className: "text-5xl md:text-6xl gap-4 h-12 md:h-24 px-4 md:px-8"
+              })}
+            >
+              <FaInstagram className="w-8 h-8 md:w-12 md:h-12" /> אינסטגרם
+            </Link>
+            <Link
+              target="_blank"
+              href="https://www.facebook.com/groups/2212613175694607/user/100075770188018/"
+              className={buttonVariants({
+                variant: "default",
+                size: "lg",
+                className: "text-5xl md:text-6xl gap-4 h-12 md:h-24 px-4 md:px-8"
+              })}
+            >
+              <FaFacebook className="w-8 h-8 md:w-12 md:h-12" /> פייסבוק
+            </Link>
+          </div>
         </motion.div>
       ) : (
         <div aria-label="רשימת תמונות" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
