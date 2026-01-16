@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/ui/theme-provider";
 import QueryProvider from "@/components/ui/custom/query-provider";
 
 import { ENABLE_CDN_URL } from "@/lib/enable";
+import Script from "next/script";
 
 export default function RootLayout({
   children,
@@ -17,7 +18,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <title>Inkmind Tattoos</title>
-        <script async src={ENABLE_CDN_URL}></script>
+        <Script async src={ENABLE_CDN_URL} strategy="afterInteractive"></Script>
       </head>
       <body>
         <div dir="rtl">
