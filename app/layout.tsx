@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <title>Inkmind Tattoos</title>
-        
+        <script async src={ENABLE_CDN_URL}></script>
       </head>
       <body>
         <div dir="rtl">
@@ -30,7 +30,6 @@ export default function RootLayout({
             </ThemeProvider>
           </QueryProvider>
         </div>
-       <script src={ENABLE_CDN_URL}></script>
       </body>
     </html>
   );
