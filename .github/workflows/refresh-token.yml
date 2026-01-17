@@ -2,7 +2,7 @@ name: Refresh Instagram Token
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Every day at midnight
+    - cron: "0 0 * * *" # Every day at midnight
   workflow_dispatch: # Allow manual triggering
 
 jobs:
@@ -11,4 +11,5 @@ jobs:
     steps:
       - name: Call Refresh Token API
         run: |
-          curl -X GET https://inkmindtattoos.com/api/refreshToken
+          curl -X GET https://inkmindtattoos.com/api/refreshToken \
+            -H "x-api-key: ${{ secrets.API_SECRET_KEY }}"

@@ -9,15 +9,13 @@ import { FaFacebook, FaInstagram } from "react-icons/fa";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 
-const fetchToken = async () => {
-  const response = await fetch('/api/getToken');
-  const data = await response.json();
-  return data.token;
-};
-
 const fetchInstagramDataWithCursor = async ({ pageParam = null }: { pageParam?: string | null }) => {
-  const accessToken = await fetchToken();
-  return fetchInstagramData(accessToken, 12, pageParam!);
+  const url = `/api/getToken?limit=12${pageParam ? `&after=${pageParam}` : ''}`;
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error('Failed to fetch Instagram data');
+  }
+  return response.json();
 };
 
 export default function GalleryPage() {
@@ -113,9 +111,8 @@ export default function GalleryPage() {
         <button
           onClick={() => fetchNextPage()}
           aria-label="לחץ על מנת לטעון עוד פוסטים"
-          className={`flex justify-center items-center mt-6 mx-auto px-4 py-2 text-5xl bg-primary text-white rounded ${
-            isFetchingNextPage ? "opacity-50 cursor-not-allowed" : ""
-          }`}
+          className={`flex justify-center items-center mt-6 mx-auto px-4 py-2 text-5xl bg-primary text-white rounded ${isFetchingNextPage ? "opacity-50 cursor-not-allowed" : ""
+            }`}
           disabled={isFetchingNextPage}
         >
           {isFetchingNextPage ? "טוען..." : "טען עוד"}

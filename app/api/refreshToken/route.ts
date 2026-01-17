@@ -2,6 +2,23 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
   try {
+    const apiKey = req.headers.get("x-api-key");
+    const secretKey = process.env.API_SECRET_KEY;
+
+    if (!secretKey) {
+      return NextResponse.json(
+        { error: "API_SECRET_KEY not configured on server" },
+        { status: 500 }
+      );
+    }
+
+    if (apiKey !== secretKey) {
+      return NextResponse.json(
+        { error: "Unauthorized" },
+        { status: 401 }
+      );
+    }
+
     const vercelToken = process.env.NEXT_PUBLIC_VERCEL_API_TOKEN;
     const projectId = process.env.NEXT_PUBLIC_VERCEL_PROJECT_ID;
     const envVariableName = "NEXT_PUBLIC_INSTAGRAM_TOKEN";
@@ -13,7 +30,6 @@ export async function GET(req: NextRequest) {
       );
     }
 
-    // 1. Fetch current environment variables from Vercel to get the LATEST token
     const envVarsResponse = await fetch(
       `https://api.vercel.com/v9/projects/${projectId}/env`,
       {
@@ -35,14 +51,12 @@ export async function GET(req: NextRequest) {
       );
     }
 
-    // 2. Refresh the token using the LIVE value from Vercel
     const refreshResponse = await fetch(
       `https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${envVar.value}`
     );
     const data = await refreshResponse.json();
 
     if (data.access_token) {
-      // 3. Update the existing environment variable in Vercel
       const updateResponse = await fetch(
         `https://api.vercel.com/v9/projects/${projectId}/env/${envVar.id}`,
         {
