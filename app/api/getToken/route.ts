@@ -1,8 +1,27 @@
 import { NextRequest, NextResponse } from "next/server";
 import { fetchInstagramData } from "@/lib/fetchInstagramData";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(req: NextRequest) {
   try {
+    const apiKey = req.headers.get("x-api-key");
+    const secretKey = process.env.API_SECRET_KEY;
+
+    if (!secretKey) {
+      return NextResponse.json(
+        { error: "API_SECRET_KEY not configured on server" },
+        { status: 500 }
+      );
+    }
+
+    if (apiKey !== secretKey) {
+      return NextResponse.json(
+        { error: "Unauthorized" },
+        { status: 401 }
+      );
+    }
+
     const { searchParams } = new URL(req.url);
     const limit = parseInt(searchParams.get("limit") || "12", 10);
     const after = searchParams.get("after") || undefined;

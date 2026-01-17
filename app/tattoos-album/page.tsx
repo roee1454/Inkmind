@@ -11,7 +11,11 @@ import { buttonVariants } from "@/components/ui/button";
 
 const fetchInstagramDataWithCursor = async ({ pageParam = null }: { pageParam?: string | null }) => {
   const url = `/api/getToken?limit=12${pageParam ? `&after=${pageParam}` : ''}`;
-  const response = await fetch(url);
+  const response = await fetch(url, {
+    headers: {
+      'x-api-key': process.env.NEXT_PUBLIC_API_SECRET_KEY || ''
+    }
+  });
   if (!response.ok) {
     throw new Error('Failed to fetch Instagram data');
   }
