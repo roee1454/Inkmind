@@ -7,15 +7,13 @@ export async function GET(req: NextRequest) {
   try {
     const apiKey = req.headers.get("x-api-key");
     const secretKey = process.env.API_SECRET_KEY;
+    const origin = req.headers.get("origin") || req.headers.get("referer") || "";
 
-    if (!secretKey) {
-      return NextResponse.json(
-        { error: "API_SECRET_KEY not configured on server" },
-        { status: 500 }
-      );
-    }
+    // Allow if valid API key is provided OR if request comes from our own domain
+    const isAuthorizedKey = secretKey && apiKey === secretKey;
+    const isAuthorizedDomain = origin.includes("inkmindtattoos.com") || origin.includes("localhost");
 
-    if (apiKey !== secretKey) {
+    if (!isAuthorizedKey && !isAuthorizedDomain) {
       return NextResponse.json(
         { error: "Unauthorized" },
         { status: 401 }
