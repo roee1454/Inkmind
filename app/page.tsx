@@ -151,11 +151,6 @@ export default function Home() {
         className="relative w-full px-6 md:px-20 py-20 min-h-[90vh] flex items-center justify-center overflow-hidden pt-44"
         aria-label="חלק ראשון"
       >
-        <NeonWatermark 
-          className="fixed inset-0 flex justify-center items-center opacity-[0.70] dark:opacity-[0.70]"
-          topText="INK"
-          bottomText="MIND" 
-        />
         <AnimatePresence mode="wait">
           <div
             className="relative z-10 w-full h-full flex flex-col justify-center items-center gap-12 lg:gap-24"
