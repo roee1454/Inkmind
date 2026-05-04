@@ -2,7 +2,7 @@
 
 import { AspectRatio } from "../aspect-ratio";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { type StaticImport } from "next/dist/shared/lib/get-img-props";
 import { useState, useEffect } from "react";
 import StampIcon from "../../../public/Stamp.png";
@@ -39,7 +39,7 @@ export default function ImageSwiper({
       transition={{ ease: "easeInOut", duration: 0.6 }}
       initial={{ scale: 1.2, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
-      className="w-72 lg:w-[100%] h-[100%] mx-auto"
+      className="w-72 lg:w-[100%] h-[100%] mx-auto relative"
     >
       {images.map((_, index) => {
         if (index === currentImage) {

@@ -11,6 +11,7 @@ const nextConfig = {
         hostname: "*.fbcdn.net",
       },
     ],
+    qualities: [60, 75]
   },
 };
 

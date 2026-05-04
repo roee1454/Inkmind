@@ -1,0 +1,8 @@
+packages:
+  - "."
+
+ignoredBuiltDependencies:
+  - puppeteer
+
+onlyBuiltDependencies:
+  - sharp

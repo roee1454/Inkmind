@@ -12,7 +12,9 @@ export interface MediaItem {
 }
 
 export const fetchInstagramData = async (accessToken: string, limit: number, after?: string) => {
-  const url = `https://graph.instagram.com/me/media?fields=id,media_type,media_url,caption,children,permalink{media_url,media_type}&access_token=${accessToken}&limit=${limit}${after ? `&after=${after}` : ''}`;
+  const url = `https://graph.instagram.com/me/media?fields=id,media_type,media_url,caption,children{id,media_url,media_type,thumbnail_url},permalink,timestamp&access_token=${accessToken}&limit=${limit}${after ? `&after=${after}` : ''}`;
   const response = await axios.get(url);
   return response.data;
 };
+
+

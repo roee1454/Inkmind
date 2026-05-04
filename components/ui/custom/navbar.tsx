@@ -1,147 +1,67 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, User, Home, GalleryHorizontal } from "lucide-react";
-import {
-  Drawer,
-  DrawerContent,
-  DrawerTrigger,
-  DrawerHeader,
-  DrawerTitle,
-} from "../drawer";
+import { usePathname } from "next/navigation";
 import { Button } from "../button";
-import { useState } from "react";
-import { ModeToggle } from "./theme-toggle";
-import Logo from "../../../public/Logo.png";
 import NewLogo from '@/assets/logo.jpeg'
+import { FaImages } from "react-icons/fa";
 
 export default function Navbar() {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
-  const handleCloseOnRedirect = () => {
-    setIsDrawerOpen(false);
-  };
+  const pathname = usePathname();
+  const isAlbumPage = pathname === "/tattoos-album";
 
   return (
-    <div className="w-full z-50 font-karantina">
-      <div className="flex flex-row justify-between items-center px-6 md:px-20 py-6">
-        <Link
-          aria-label="דף בית"
-          href="/"
-          className="cursor-pointer rounded-full"
+    <div className="fixed top-0 left-0 w-full z-[100] py-6 pointer-events-none bg-black/40 backdrop-blur-xl border-b border-primary/20">
+      {/* Decorative Glow - Symmetric to Footer */}
+      <div className="absolute bottom-0 left-1/4 right-1/4 h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent shadow-[0_0_15px_hsl(var(--primary))]" />
+      
+      <div className="max-w-7xl mx-auto px-6 md:px-20 flex items-center justify-between pointer-events-auto">
+        
+        {/* Logo Section */}
+        <Link 
+          href="/" 
+          className="group relative flex items-center gap-4"
+          aria-label="חזרה לדף הבית"
         >
-          <Image
-            className="w-20 h-20 md:w-32 md:h-32 object-cover rounded-full px-0 dark:border-4 dark:border-white"
-            src={NewLogo}
-            priority
-            alt="לוגו עסק"
-          />
+          <div className="relative">
+            <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full animate-pulse" />
+            <Image
+              className="w-16 h-16 md:w-20 md:h-20 object-cover rounded-full border-2 border-primary/40 group-hover:border-primary transition-colors"
+              src={NewLogo}
+              priority
+              alt="Inkmind Logo"
+            />
+          </div>
+          <span className="hidden md:block font-karantina text-4xl font-bold tracking-widest text-glow text-white">
+            INKMIND
+          </span>
         </Link>
-        {/* Mobile Menu */}
-        <div className="lg:hidden flex flex-row justify-center items-center">
-          <ModeToggle />
-          <Drawer
-            disablePreventScroll={true}
-            fixed
-            preventScrollRestoration
-            open={isDrawerOpen}
-            onOpenChange={(open) => setIsDrawerOpen(open)}
-          >
-            <DrawerTrigger asChild>
-              <Button
-                variant={"outline"}
-                className="p-2 rounded-full border-none bg-transparent"
-                aria-label="פתח תפריט"
-              >
-                <Menu />
-              </Button>
-            </DrawerTrigger>
-            <DrawerContent className="font-bold font-karantina">
-              <DrawerHeader>
-                <DrawerTitle>תפריט</DrawerTitle>
-              </DrawerHeader>
-              <div className="flex flex-col justify-center items-center p-6 space-y-4">
-                <NavDrawerItem
-                  title="מסך ראשי"
-                  icon={<Home />}
-                  href="/"
-                  handleCloseOnRedirect={handleCloseOnRedirect}
-                />
-                <NavDrawerItem
-                  title="אלבום הסטודיו"
-                  icon={<GalleryHorizontal />}
-                  href="/tattoos-album"
-                  handleCloseOnRedirect={handleCloseOnRedirect}
-                />
+
+        {/* Action Button Section */}
+        <div className="flex items-center">
+          <Link href={isAlbumPage ? "/" : "/tattoos-album"}>
+            <Button
+              variant="outline"
+              className={`
+                font-karantina text-2xl md:text-3xl p-3 h-auto rounded-2xl border-2 transition-all duration-500
+                ${isAlbumPage 
+                  ? "bg-primary text-white border-primary shadow-[0_0_20px_rgba(var(--primary),0.4)]" 
+                  : "bg-black/40 text-white border-primary/40 hover:border-primary hover:shadow-[0_0_20px_rgba(var(--primary),0.2)] backdrop-blur-md"
+                }
+              `}
+            >
+              <div className="flex items-center gap-3">
+                <FaImages className="w-6 h-6" />
+                <span>{isAlbumPage ? "חזרה לבית" : "גלריית קעקועים"}</span>
               </div>
-            </DrawerContent>
-          </Drawer>
+            </Button>
+          </Link>
         </div>
 
-        {/* Desktop Menu */}
-        <div className="hidden lg:flex flex-row justify-center items-center space-x-6 px-6 py-4">
-          <NavItem title="אלבום הסטודיו" href="/tattoos-album" />
-          <ModeToggle />
-        </div>
       </div>
+
+      {/* Aesthetic Bottom Glow Line */}
+      <div className="absolute bottom-0 left-1/4 right-1/4 h-[1px] bg-gradient-to-r from-transparent via-primary/70 to-transparent" />
     </div>
-  );
-}
-
-interface NavItemProps {
-  title?: string;
-  href?: string;
-}
-
-interface NavDrawerItemProps extends NavItemProps {
-  icon?: any;
-  handleCloseOnRedirect: () => void;
-}
-
-function NavItem({ title, href }: NavItemProps) {
-  return (
-    <Link
-      href={href || "/"}
-      className="text-3xl font-bold border-none px-6 py-2 rounded-lg transition hover:text-white hover:bg-primary"
-      aria-label={title}
-    >
-      {title || "כותרת"}
-    </Link>
-  );
-}
-
-interface NavIconProps {
-  href: string;
-  icon: string;
-}
-
-function NavIcon({ href, icon }: NavIconProps) {
-  return (
-    <Link
-      href={href}
-      className="p-2.5 rounded-full bg-transparent transition dark:hover:bg-primary"
-      aria-label="קישור לאייקון"
-    >
-      <Image src={icon} alt="אייקון" />
-    </Link>
-  );
-}
-
-function NavDrawerItem({
-  title,
-  href,
-  icon,
-  handleCloseOnRedirect,
-}: NavDrawerItemProps) {
-  return (
-    <Link
-      onClick={handleCloseOnRedirect}
-      href={href || "/"}
-      className="w-full flex flex-row justify-between items-center px-6 py-2 rounded-lg shadow-lg border-4 border-primary"
-      aria-label={title}
-    >
-      <div className="text-lg font-semibold">{title}</div>
-      {icon}
-    </Link>
   );
 }

@@ -1,25 +1,28 @@
 "use client";
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { cn } from "@/lib/utils";
 
 export const FlipWords = ({
   words,
+  colors,
   duration = 3000,
   className,
 }: {
   words: string[];
+  colors?: string[];
   duration?: number;
   className?: string;
 }) => {
-  const [currentWord, setCurrentWord] = useState(words[0]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const currentWord = words[currentIndex];
+  const currentColor = colors ? colors[currentIndex % colors.length] : "";
   const [isAnimating, setIsAnimating] = useState<boolean>(false);
 
   const startAnimation = useCallback(() => {
-    const word = words[words.indexOf(currentWord) + 1] || words[0];
-    setCurrentWord(word);
+    setCurrentIndex((prev) => (prev + 1) % words.length);
     setIsAnimating(true);
-  }, [currentWord, words]);
+  }, [words.length]);
 
   useEffect(() => {
     if (!isAnimating)
@@ -64,9 +67,9 @@ export const FlipWords = ({
           className
         )}
         key={currentWord}
-        aria-live="polite" // Added for screen readers
+        aria-live="polite"
         role="alert"
-        aria-hidden={true} // Role set to alert for dynamic content
+        aria-hidden={true}
       >
         {currentWord.split("").map((letter, index) => (
           <motion.span
@@ -77,7 +80,7 @@ export const FlipWords = ({
               delay: index * 0.08,
               duration: 0.4,
             }}
-            className="inline-block"
+            className={cn("inline-block", currentColor)}
           >
             {letter}
           </motion.span>
