@@ -12,7 +12,7 @@ const PrivacyPolicy: React.FC = () => {
         'בינואר', 'בפברואר', 'במרץ', 'באפריל', 'במאי', 'ביוני',
         'ביולי', 'באוגוסט', 'בספטמבר', 'באוקטובר', 'בנובמבר', 'בדצמבר'
       ];
-      return `11 ${monthsHebrew[Math.floor(now.getMonth() / 3) * 3]} ${now.getFullYear()}`;
+      return `1 ${monthsHebrew[Math.floor(now.getMonth() / 3) * 3]} ${now.getFullYear()}`;
     };
     setLastUpdated(getDynamicDate());
   }, []);
