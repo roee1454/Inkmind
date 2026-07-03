@@ -62,7 +62,7 @@ const PrivacyPolicy: React.FC = () => {
             </p>
           </section>
 
-          <section className="bg-white/5 border border-white/10 backdrop-blur-xl p-8 rounded-3xl space-y-4 text-center">
+          <section className="bg-white/5 border border-white/10 backdrop-blur-xl p-8 rounded-3xl space-y-4 text-start">
             <h2 className="text-3xl md:text-4xl font-bold font-karantina text-primary/80">שינויים ויצירת קשר</h2>
             <p className="text-lg md:text-xl text-foreground/70">
               אנו עשויים לעדכן את המדיניות מעת לעת. אם יש לכם שאלות, אתם מוזמנים ליצור איתנו קשר.
